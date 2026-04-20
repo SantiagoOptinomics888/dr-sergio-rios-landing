@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Sergio Ríos | Odontología de Alta Complejidad en Medellín</title>
+  <meta name="description" content="Implantología avanzada, diseño de sonrisa y rehabilitación oral completa con el Dr. Sergio Ríos. Más de 15 años de experiencia, formación en NYU y Barcelona.">
+  <meta name="theme-color" content="#e0f0ee">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Skip Navigation (Accessibility) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FLOATING NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+      <div class="nav__inner">
+        <a href="#hero" class="nav__logo" aria-label="Dr. Sergio Ríos — Inicio">
+          <span class="nav__logo-name">Dr. Sergio Ríos</span>
+          <span class="nav__logo-tag">Odontología de Alta Complejidad</span>
+        </a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#trayectoria">Trayectoria</a></li>
+          <li><a href="#implantologia">Implantología</a></li>
+          <li><a href="#diseno-sonrisa">Diseño de Sonrisa</a></li>
+          <li><a href="#rehabilitacion">Rehabilitación</a></li>
+          <li><a href="#ortodoncia">Ortodoncia</a></li>
+          <li><a href="#turismo">Turismo Médico</a></li>
+          <li><a href="#galeria">Resultados</a></li>
+        </ul>
+        <a href="contacto.html" class="nav__cta" role="button">Agendar Consulta</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
+    <ul class="mobile-menu__links">
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#implantologia">Implantología</a></li>
+      <li><a href="#diseno-sonrisa">Diseño de Sonrisa</a></li>
+      <li><a href="#rehabilitacion">Rehabilitación</a></li>
+      <li><a href="#ortodoncia">Ortodoncia</a></li>
+      <li><a href="#turismo">Turismo Médico</a></li>
+      <li><a href="#galeria">Resultados</a></li>
+      <li><a href="contacto.html" class="mobile-menu__cta">Agendar Consulta</a></li>
+    </ul>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 1. HERO SECTION                                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Presentación">
+      <div class="hero__bg-orb hero__bg-orb--1" aria-hidden="true"></div>
+      <div class="hero__bg-orb hero__bg-orb--2" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__text">
+          <p class="hero__pre-title reveal" aria-label="Ubicación">Dr. Sergio Ríos &mdash; Medellín, Colombia</p>
+          <h1 class="hero__title reveal">
+            La Ciencia de la<br>Reconstrucción.<br>
+            <em>El Arte de la Confianza.</em>
+          </h1>
+          <p class="hero__subtitle reveal">
+            Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#implantologia" class="btn btn--primary">
+              <span>Explorar Especialidades</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </a>
+            <a href="contacto.html" class="btn btn--ghost">Contactar</a>
+          </div>
+          <div class="hero__trust-bar reveal">
+            <div class="hero__trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>+5,000 procedimientos</span>
+            </div>
+            <div class="hero__trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span>4.9/5 valoración</span>
+            </div>
+            <div class="hero__trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Medellín, Colombia</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__image">
+          <div class="hero__image-frame reveal">
+            <img
+              src="img/dr-sergio-rios-hero.jpg"
+              alt="Dr. Sergio Ríos — Odontólogo especialista en implantología y diseño de sonrisa, Medellín"
+              width="600"
+              height="800"
+              loading="eager"
+              class="hero__photo"
+            >
+          </div>
+          <!-- Floating credential badges -->
+          <div class="hero__badge hero__badge--nyu reveal" aria-label="Formado en NYU">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>NYU Dentistry</span>
+          </div>
+          <div class="hero__badge hero__badge--exp reveal" aria-label="Más de 15 años de experiencia">
+            <span class="hero__badge-number">+15</span>
+            <span>años exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span>Descubre más</span>
+        <div class="hero__scroll-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 2. TRAYECTORIA Y AUTORIDAD (Bento Grid)             -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="trayectoria" id="trayectoria" aria-label="Trayectoria profesional">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-tag">Trayectoria</p>
+          <h2 class="section-title">Formación Internacional.<br><em>Precisión Local.</em></h2>
+          <p class="section-subtitle">Una carrera dedicada a la excelencia odontológica en tres continentes.</p>
+        </div>
+        <div class="bento" role="list">
+          <div class="bento__item bento__item--large reveal" role="listitem">
+            <div class="bento__number" data-count="15">+15</div>
+            <div class="bento__label">Años de Experiencia</div>
+            <p class="bento__desc">Dedicados a la odontología reconstructiva y estética de alta complejidad.</p>
+          </div>
+          <div class="bento__item reveal" role="listitem">
+            <div class="bento__icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="bento__label">NYU College of Dentistry</div>
+            <p class="bento__desc">Formación de posgrado en una de las instituciones más prestigiosas del mundo.</p>
+            <div class="bento__logo-placeholder" aria-label="Logo NYU">NYU</div>
+          </div>
+          <div class="bento__item reveal" role="listitem">
+            <div class="bento__icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="bento__label">Especialización en Barcelona</div>
+            <p class="bento__desc">Estudios avanzados en implantología y estética dental en España.</p>
+            <div class="bento__logo-placeholder" aria-label="Logo Universidad de Barcelona">UB</div>
+          </div>
+          <div class="bento__item bento__item--accent reveal" role="listitem">
+            <div class="bento__number" data-count="5000">+5,000</div>
+            <div class="bento__label">Procedimientos Exitosos</div>
+            <p class="bento__desc">Implantes, rehabilitaciones y diseños de sonrisa completados con éxito.</p>
+          </div>
+          <div class="bento__item reveal" role="listitem">
+            <div class="bento__icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="bento__label">Miembro de Asociaciones</div>
+            <p class="bento__desc">Miembro activo de sociedades internacionales de implantología y estética dental.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 3. IMPLANTOLOGÍA AVANZADA                           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="service service--implant" id="implantologia" aria-label="Implantología Avanzada">
+      <div class="service__bg-pattern" aria-hidden="true">
+        <img src="img/rehab-clinical.jpg" alt="" aria-hidden="true" class="service__bg-img" loading="lazy">
+      </div>
+      <div class="container">
+        <div class="service__content">
+          <div class="service__text-block reveal">
+            <p class="section-tag">Especialidad 01</p>
+            <h2 class="section-title">Implantología<br><em>Avanzada</em></h2>
+            <p class="service__desc">Recupere su sonrisa con tecnología de vanguardia y los más altos estándares quirúrgicos internacionales.</p>
+            <div class="service__features">
+              <div class="service__feature">
+                <div class="service__feature-icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                  <h3>Carga Inmediata</h3>
+                  <p>Implantes y dientes provisionales en el mismo día. Tecnología de última generación para resultados inmediatos.</p>
+                </div>
+              </div>
+              <div class="service__feature">
+                <div class="service__feature-icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <h3>Seguridad Quirúrgica</h3>
+                  <p>Cirugía guiada por computador. Planificación 3D para máxima precisión y mínima invasión.</p>
+                </div>
+              </div>
+              <div class="service__feature">
+                <div class="service__feature-icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <h3>Protocolo All-on-4</h3>
+                  <p>Rehabilitación completa con solo 4 implantes. Solución definitiva para arcadas completas.</p>
+                </div>
+              </div>
+            </div>
+            <a href="contacto.html" class="btn btn--primary">
+              <span>Consulta de Implantología</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 4. DISEÑO DE SONRISA Y ALTA ESTÉTICA                -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="service service--smile" id="diseno-sonrisa" aria-label="Diseño de Sonrisa">
+      <div class="container">
+        <div class="service__split">
+          <div class="service__visual reveal">
+            <div class="service__magazine-frame">
+              <div class="service__magazine-img">
+                <img src="img/smile-veneers-lateral.jpg" alt="Resultado de diseño de sonrisa con carillas de porcelana ultra-delgadas" loading="lazy" class="service__magazine-photo">
+              </div>
+              <div class="service__magazine-caption">
+                <span class="service__magazine-tag">New York Aesthetic School</span>
+              </div>
+            </div>
+          </div>
+          <div class="service__text-block reveal">
+            <p class="section-tag">Especialidad 02</p>
+            <h2 class="section-title">Diseño de Sonrisa<br><em>& Alta Estética</em></h2>
+            <p class="service__desc">
+              Cada sonrisa es una obra de arte personalizada. Combinamos la precisión técnica de la escuela estética de New York con la visión artística para crear resultados indistinguibles de la naturaleza.
+            </p>
+            <ul class="service__highlights" role="list">
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Carillas de porcelana ultra-delgadas
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Diseño Digital de Sonrisa (DSD)
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Naturalidad como máximo estándar
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Blanqueamiento dental de precisión
+              </li>
+            </ul>
+            <a href="contacto.html" class="btn btn--primary">
+              <span>Diseñar mi Sonrisa</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 5. REHABILITACIÓN ORAL COMPLETA                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="service service--rehab" id="rehabilitacion" aria-label="Rehabilitación Oral">
+      <div class="container">
+        <div class="service__case-study reveal">
+          <div class="service__case-header">
+            <p class="section-tag">Especialidad 03</p>
+            <h2 class="section-title">Rehabilitación<br><em>Oral Completa</em></h2>
+          </div>
+          <div class="service__case-body">
+            <div class="service__case-visual">
+              <img src="img/smile-open-female.jpg" alt="Resultado de rehabilitación oral completa — sonrisa restaurada" loading="lazy" class="service__case-photo">
+            </div>
+            <div class="service__case-info">
+              <p class="service__desc">
+                Soluciones definitivas para casos complejos de pérdida dental. Devolvemos la función masticatoria, la estética y la confianza a pacientes que perdieron la esperanza.
+              </p>
+              <div class="service__stats" role="list">
+                <div class="service__stat" role="listitem">
+                  <div class="service__stat-number" data-count="98">98%</div>
+                  <div class="service__stat-label">Tasa de éxito en rehabilitaciones complejas</div>
+                </div>
+                <div class="service__stat" role="listitem">
+                  <div class="service__stat-number">24h</div>
+                  <div class="service__stat-label">Dientes provisionales el mismo día</div>
+                </div>
+                <div class="service__stat" role="listitem">
+                  <div class="service__stat-number" data-count="10">10+</div>
+                  <div class="service__stat-label">Años de seguimiento post-tratamiento</div>
+                </div>
+              </div>
+              <a href="contacto.html" class="btn btn--primary">
+                <span>Evaluar mi Caso</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 6. ORTODONCIA INVISIBLE                             -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="service service--ortho" id="ortodoncia" aria-label="Ortodoncia Invisible">
+      <div class="container">
+        <div class="service__split service__split--reverse">
+          <div class="service__text-block reveal">
+            <div class="service__new-badge" aria-label="Nuevo servicio">Nuevo</div>
+            <p class="section-tag">Especialidad 04</p>
+            <h2 class="section-title">Ortodoncia<br><em>Invisible</em></h2>
+            <p class="service__desc">
+              Alineación dental sin brackets visibles. Tecnología de alineadores transparentes con planificación 3D para resultados predecibles y máxima comodidad.
+            </p>
+            <ul class="service__highlights" role="list">
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Alineadores prácticamente invisibles
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Planificación 3D con simulación de resultados
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Removibles para comer y cepillarse
+              </li>
+              <li class="service__highlight">
+                <span class="service__highlight-dot" aria-hidden="true"></span>
+                Control digital del progreso
+              </li>
+            </ul>
+            <a href="contacto.html" class="btn btn--primary">
+              <span>Iniciar Ortodoncia</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="service__visual reveal">
+            <div class="service__ortho-frame">
+              <img src="img/face-redhead.jpg" alt="Paciente sonriendo con resultado de ortodoncia invisible — alineación perfecta" loading="lazy" class="service__ortho-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- TESTIMONIALS (Social Proof)                         -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="testimonials" id="testimonios" aria-label="Testimonios de pacientes">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-tag">Testimonios</p>
+          <h2 class="section-title">Lo que dicen<br><em>nuestros pacientes</em></h2>
+        </div>
+        <div class="testimonials__grid" role="list">
+          <blockquote class="testimonial reveal" role="listitem">
+            <div class="testimonial__stars" aria-label="5 estrellas">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial__text">"Después de años sin sonreír con confianza, el Dr. Ríos me devolvió la vida. El resultado de mis implantes es increíble, nadie nota que no son mis dientes naturales."</p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">MC</div>
+              <div>
+                <cite class="testimonial__name">María Cristina P.</cite>
+                <span class="testimonial__procedure">Implantología &mdash; Carga Inmediata</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal" role="listitem">
+            <div class="testimonial__stars" aria-label="5 estrellas">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial__text">"I traveled from the US for my smile design. The bilingual service was impeccable, the results exceeded all my expectations. Worth every mile."</p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">JR</div>
+              <div>
+                <cite class="testimonial__name">James R.</cite>
+                <span class="testimonial__procedure">Dental Tourism &mdash; Smile Design</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal" role="listitem">
+            <div class="testimonial__stars" aria-label="5 estrellas">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#e79440" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial__text">"Mi rehabilitación oral completa fue un proceso que cambió mi vida. El equipo del Dr. Ríos me acompañó en cada paso con profesionalismo y calidez humana."</p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">AG</div>
+              <div>
+                <cite class="testimonial__name">Andrés G.</cite>
+                <span class="testimonial__procedure">Rehabilitación Oral Completa</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 7. TURISMO MÉDICO (THE BRIDGE)                      -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="turismo" id="turismo" aria-label="Turismo Médico">
+      <div class="container">
+        <div class="turismo__banner reveal">
+          <div class="turismo__orb" aria-hidden="true"></div>
+          <div class="turismo__content">
+            <p class="section-tag section-tag--light">The Bridge</p>
+            <h2 class="turismo__title">Medellín: Excelencia<br><em>para el Mundo</em></h2>
+            <p class="turismo__desc">
+              Reciba tratamiento odontológico de clase mundial mientras descubre una de las ciudades más vibrantes de Latinoamérica. Nuestro programa integral cuida cada detalle.
+            </p>
+            <div class="turismo__features">
+              <div class="turismo__feature">
+                <div class="turismo__feature-icon" aria-hidden="true">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e0f0ee" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <h3>Bilingüe</h3>
+                  <p>Atención en Español, Inglés e Italiano</p>
+                </div>
+              </div>
+              <div class="turismo__feature">
+                <div class="turismo__feature-icon" aria-hidden="true">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e0f0ee" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div>
+                  <h3>Concierge VIP</h3>
+                  <p>Transporte, alojamiento y acompañamiento integral</p>
+                </div>
+              </div>
+              <div class="turismo__feature">
+                <div class="turismo__feature-icon" aria-hidden="true">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e0f0ee" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <h3>Teleconsulta Previa</h3>
+                  <p>Evaluación virtual antes de su viaje</p>
+                </div>
+              </div>
+            </div>
+            <a href="contacto.html" class="btn btn--light">Planificar mi Viaje</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- 8. GALERÍA DE ÉXITO (Before / After)                -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="galeria" id="galeria" aria-label="Galería de resultados">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-tag">Resultados</p>
+          <h2 class="section-title">Galería de<br><em>Éxito</em></h2>
+          <p class="section-subtitle">Casos reales. Resultados reales. Confianza renovada.</p>
+        </div>
+        <div class="galeria__grid" role="list">
+          <div class="galeria__item reveal" role="listitem">
+            <div class="galeria__before-after">
+              <div class="galeria__img galeria__img--before">
+                <img src="img/smile-male-front.jpg" alt="Antes — caso de diseño de sonrisa" loading="lazy" class="galeria__photo">
+                <span class="galeria__label">Antes</span>
+              </div>
+              <div class="galeria__img galeria__img--after">
+                <img src="img/smile-front-female.jpg" alt="Después — sonrisa armónica con carillas" loading="lazy" class="galeria__photo">
+                <span class="galeria__label galeria__label--after">Después</span>
+              </div>
+            </div>
+            <p class="galeria__caption">Diseño de sonrisa &mdash; carillas de porcelana</p>
+          </div>
+          <div class="galeria__item reveal" role="listitem">
+            <div class="galeria__before-after">
+              <div class="galeria__img galeria__img--before">
+                <img src="img/teeth-clinical.jpg" alt="Antes — caso clínico de rehabilitación" loading="lazy" class="galeria__photo">
+                <span class="galeria__label">Antes</span>
+              </div>
+              <div class="galeria__img galeria__img--after">
+                <img src="img/smile-veneers-lateral.jpg" alt="Después — resultado de carillas laterales" loading="lazy" class="galeria__photo">
+                <span class="galeria__label galeria__label--after">Después</span>
+              </div>
+            </div>
+            <p class="galeria__caption">Rehabilitación completa con implantes</p>
+          </div>
+          <div class="galeria__item reveal" role="listitem">
+            <div class="galeria__before-after">
+              <div class="galeria__img galeria__img--before">
+                <img src="img/lips-closeup.jpg" alt="Antes — detalle estético dental" loading="lazy" class="galeria__photo">
+                <span class="galeria__label">Antes</span>
+              </div>
+              <div class="galeria__img galeria__img--after">
+                <img src="img/veneers-lateral-detail.jpg" alt="Después — detalle de carillas perfectas" loading="lazy" class="galeria__photo">
+                <span class="galeria__label galeria__label--after">Después</span>
+              </div>
+            </div>
+            <p class="galeria__caption">Alta estética &mdash; naturalidad extrema</p>
+          </div>
+          <div class="galeria__item reveal" role="listitem">
+            <div class="galeria__before-after">
+              <div class="galeria__img galeria__img--before">
+                <img src="img/smile-lateral-male.jpg" alt="Antes — caso de ortodoncia" loading="lazy" class="galeria__photo">
+                <span class="galeria__label">Antes</span>
+              </div>
+              <div class="galeria__img galeria__img--after">
+                <img src="img/smile-result-female.jpg" alt="Después — sonrisa alineada y natural" loading="lazy" class="galeria__photo">
+                <span class="galeria__label galeria__label--after">Después</span>
+              </div>
+            </div>
+            <p class="galeria__caption">Implantología con carga inmediata</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- CTA FINAL                                           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <section class="cta-final" aria-label="Llamada a la acción">
+      <div class="container">
+        <div class="cta-final__card reveal">
+          <h2 class="cta-final__title">¿Listo para transformar<br><em>su sonrisa?</em></h2>
+          <p class="cta-final__desc">Agende su consulta de valoración y dé el primer paso hacia la sonrisa que merece.</p>
+          <div class="cta-final__actions">
+            <a href="contacto.html" class="btn btn--primary btn--lg">
+              <span>Agendar Consulta</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/573000000000" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FOOTER                                              -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name">Dr. Sergio Ríos</span>
+          <p class="footer__tagline">Odontología de Alta Complejidad</p>
+          <p class="footer__location">Medellín, Colombia</p>
+        </div>
+        <div class="footer__links">
+          <h4>Especialidades</h4>
+          <ul>
+            <li><a href="#implantologia">Implantología Avanzada</a></li>
+            <li><a href="#diseno-sonrisa">Diseño de Sonrisa</a></li>
+            <li><a href="#rehabilitacion">Rehabilitación Oral</a></li>
+            <li><a href="#ortodoncia">Ortodoncia Invisible</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#trayectoria">Trayectoria</a></li>
+            <li><a href="#turismo">Turismo Médico</a></li>
+            <li><a href="#galeria">Resultados</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Contacto</h4>
+          <p>contacto@drsergiorios.com</p>
+          <p>+57 (604) 000 0000</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Seguir en Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/573000000000" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Dr. Sergio Ríos. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
