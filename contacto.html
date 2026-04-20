@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | Dr. Sergio Ríos — Odontología de Alta Complejidad</title>
+  <title>Contacto | Dr. Sergio Ríos</title>
   <meta name="description" content="Agende su consulta con el Dr. Sergio Ríos en Medellín.">
-  <meta name="theme-color" content="#e0f0ee">
+  <meta name="theme-color" content="#f4faf9">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="body--contact">
 
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
@@ -19,10 +19,7 @@
     <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo" aria-label="Dr. Sergio Ríos — Inicio">
-          <span class="nav__logo-name">Dr. Sergio Ríos</span>
-          <span class="nav__logo-tag">Odontología de Alta Complejidad</span>
-        </a>
+        <a href="index.html" class="nav__logo"><span class="nav__logo-name">Dr. Sergio Ríos</span><span class="nav__logo-tag">Odontología de Alta Complejidad</span></a>
         <ul class="nav__links" id="navLinks">
           <li><a href="index.html#trayectoria">Trayectoria</a></li>
           <li><a href="index.html#implantologia">Implantología</a></li>
@@ -31,13 +28,12 @@
           <li><a href="index.html#ortodoncia">Ortodoncia</a></li>
           <li><a href="index.html#turismo">Turismo Médico</a></li>
         </ul>
-        <a href="contacto.html" class="nav__cta" role="button">Agendar Consulta</a>
-        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        <a href="contacto.html" class="nav__cta">Agendar Consulta</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </nav>
   </header>
-
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú" aria-hidden="true">
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-hidden="true">
     <ul class="mobile-menu__links">
       <li><a href="index.html#trayectoria">Trayectoria</a></li>
       <li><a href="index.html#implantologia">Implantología</a></li>
@@ -48,126 +44,122 @@
     </ul>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" class="ct">
+    <div class="ct__container">
 
-    <!-- ════════════════════════════════════════════════════════ -->
-    <!-- SECTION 1 — Full-screen hero split: Left info / Right form -->
-    <!-- ════════════════════════════════════════════════════════ -->
-    <section class="pg">
-      <div class="pg__inner">
+      <!-- ══ ROW 1: Title ══ -->
+      <div class="ct__header">
+        <p class="ct__tag">Contacto</p>
+        <h1 class="ct__title">Agende su Consulta</h1>
+      </div>
 
-        <!-- LEFT PANEL — Dark with info -->
-        <div class="pg__left">
-          <div class="pg__left-content">
-            <p class="pg__tag">Agendar Consulta</p>
-            <h1 class="pg__title">Su nueva sonrisa<br>comienza con una<br>conversación.</h1>
+      <!-- ══ ROW 2: Bento grid — Form + Cards ══ -->
+      <div class="ct__bento">
 
-            <div class="pg__info">
-              <div class="pg__info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>El Poblado, Medellín</strong>
-                  <span>Colombia</span>
-                </div>
+        <!-- CARD: Form (large, spans 2 cols) -->
+        <div class="ct__card ct__card--form">
+          <h2 class="ct__card-title">Solicitar Consulta</h2>
+          <p class="ct__card-sub">Respuesta garantizada en menos de 24 horas.</p>
+          <form id="contactForm" novalidate>
+            <div class="ct__f-row">
+              <div class="ct__f-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required autocomplete="given-name" placeholder=" ">
+                <p class="error-message" role="alert"></p>
               </div>
-              <div class="pg__info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>+57 (300) 123-4567</strong>
-                  <span>Soporte bilingüe</span>
-                </div>
-              </div>
-              <div class="pg__info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <div>
-                  <strong>concierge@drsergiorios.com</strong>
-                </div>
+              <div class="ct__f-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required autocomplete="family-name" placeholder=" ">
+                <p class="error-message" role="alert"></p>
               </div>
             </div>
-
-            <div class="pg__hours">
-              <p class="pg__hours-label">Horario</p>
-              <p>Lun–Vie: 8am–6pm &nbsp;|&nbsp; Sáb: 8am–1pm</p>
+            <div class="ct__f-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder=" ">
+              <p class="error-message" role="alert"></p>
             </div>
-
-            <a href="https://wa.me/573001234567" class="pg__wa" target="_blank" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>Escribir por WhatsApp</span>
-            </a>
-
-            <!-- Map at bottom of left panel -->
-            <div class="pg__map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.680819332096!2d-75.5780507!3d6.2087634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sEl%20Poblado%2C%20Medell%C3%ADn%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación"></iframe>
+            <div class="ct__f-group">
+              <label for="telefono">WhatsApp / Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" required autocomplete="tel" placeholder=" ">
+              <p class="error-message" role="alert"></p>
             </div>
+            <div class="ct__f-group">
+              <label>Interés Clínico</label>
+              <div class="ct__chips">
+                <label class="ct__chip"><input type="radio" name="servicio" value="implantes"><span>Implantes</span></label>
+                <label class="ct__chip"><input type="radio" name="servicio" value="estetica"><span>Estética</span></label>
+                <label class="ct__chip"><input type="radio" name="servicio" value="rehab"><span>Rehabilitación</span></label>
+                <label class="ct__chip"><input type="radio" name="servicio" value="ortodoncia"><span>Ortodoncia</span></label>
+                <label class="ct__chip"><input type="radio" name="servicio" value="otro"><span>Otro</span></label>
+              </div>
+            </div>
+            <div class="ct__f-group">
+              <label for="mensaje">Mensaje <span class="ct__opt">(opcional)</span></label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder=" "></textarea>
+            </div>
+            <button type="submit" class="ct__submit">Enviar Solicitud<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <p class="ct__safe"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Datos protegidos. Nunca compartidos.</p>
+          </form>
+        </div>
+
+        <!-- CARD: WhatsApp -->
+        <a href="https://wa.me/573001234567" class="ct__card ct__card--wa" target="_blank" rel="noopener noreferrer">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <h3>WhatsApp</h3>
+          <p>+57 (300) 123-4567</p>
+          <span class="ct__card-action">Escribir ahora &rarr;</span>
+        </a>
+
+        <!-- CARD: Phone -->
+        <a href="tel:+573001234567" class="ct__card ct__card--phone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <h3>Llamar</h3>
+          <p>+57 (300) 123-4567</p>
+          <span class="ct__card-action">Llamar ahora &rarr;</span>
+        </a>
+
+        <!-- CARD: Hours -->
+        <div class="ct__card ct__card--hours">
+          <h3>Horario</h3>
+          <div class="ct__hours">
+            <div><span>Lun – Vie</span><strong>8am – 6pm</strong></div>
+            <div><span>Sábado</span><strong>8am – 1pm</strong></div>
+            <div><span>Domingo</span><strong>Cerrado</strong></div>
           </div>
         </div>
 
-        <!-- RIGHT PANEL — White with form -->
-        <div class="pg__right">
-          <div class="pg__right-content">
-            <h2 class="pg__form-title">Solicitar Consulta</h2>
-            <p class="pg__form-sub">Complete el formulario y le responderemos en menos de 24 horas con una valoración personalizada.</p>
+        <!-- CARD: Email -->
+        <a href="mailto:concierge@drsergiorios.com" class="ct__card ct__card--email">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <h3>Email</h3>
+          <p>concierge@drsergiorios.com</p>
+          <span class="ct__card-action">Enviar correo &rarr;</span>
+        </a>
 
-            <form id="contactForm" novalidate>
-
-              <div class="pg__row">
-                <div class="pg__field">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
-                  <p class="error-message" role="alert"></p>
-                </div>
-                <div class="pg__field">
-                  <label for="apellido">Apellido</label>
-                  <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
-                  <p class="error-message" role="alert"></p>
-                </div>
-              </div>
-
-              <div class="pg__field">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required autocomplete="email">
-                <p class="error-message" role="alert"></p>
-              </div>
-
-              <div class="pg__field">
-                <label for="telefono">WhatsApp / Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
-                <p class="error-message" role="alert"></p>
-              </div>
-
-              <div class="pg__field">
-                <label>Área de Interés Clínico</label>
-                <div class="pg__pills">
-                  <label class="pg__pill"><input type="radio" name="servicio" value="implantes"><span>Implantes</span></label>
-                  <label class="pg__pill"><input type="radio" name="servicio" value="estetica"><span>Estética</span></label>
-                  <label class="pg__pill"><input type="radio" name="servicio" value="rehab"><span>Rehab.</span></label>
-                  <label class="pg__pill"><input type="radio" name="servicio" value="ortodoncia"><span>Ortodoncia</span></label>
-                  <label class="pg__pill"><input type="radio" name="servicio" value="otro"><span>Otro</span></label>
-                </div>
-              </div>
-
-              <div class="pg__field">
-                <label for="mensaje">Mensaje <span class="pg__optional">(opcional)</span></label>
-                <textarea id="mensaje" name="mensaje" rows="3"></textarea>
-              </div>
-
-              <button type="submit" class="pg__submit">
-                Enviar Solicitud
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-
-              <p class="pg__disclaimer">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Datos protegidos. Nunca compartidos con terceros.
-              </p>
-            </form>
+        <!-- CARD: Map (large, spans 2 cols) -->
+        <div class="ct__card ct__card--map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.680819332096!2d-75.5780507!3d6.2087634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sEl%20Poblado%2C%20Medell%C3%ADn%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación"></iframe>
+          <div class="ct__map-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            El Poblado, Medellín, Colombia
           </div>
         </div>
 
       </div>
-    </section>
-
+    </div>
   </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand"><span class="footer__name">Dr. Sergio Ríos</span><p class="footer__tagline">Odontología de Alta Complejidad</p><p class="footer__location">Medellín, Colombia</p></div>
+        <div class="footer__links"><h4>Especialidades</h4><ul><li><a href="index.html#implantologia">Implantología</a></li><li><a href="index.html#diseno-sonrisa">Diseño de Sonrisa</a></li><li><a href="index.html#rehabilitacion">Rehabilitación</a></li><li><a href="index.html#ortodoncia">Ortodoncia</a></li></ul></div>
+        <div class="footer__links"><h4>Navegación</h4><ul><li><a href="index.html#trayectoria">Trayectoria</a></li><li><a href="index.html#turismo">Turismo Médico</a></li><li><a href="index.html#galeria">Resultados</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+        <div class="footer__contact"><h4>Contacto</h4><p>concierge@drsergiorios.com</p><p>+57 (300) 123-4567</p></div>
+      </div>
+      <div class="footer__bottom"><p>&copy; 2026 Dr. Sergio Ríos. Todos los derechos reservados.</p></div>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>

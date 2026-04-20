@@ -2036,8 +2036,361 @@ ul { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════ */
-/* CONTACT PAGE — Full-screen split v7                        */
+/* CONTACT PAGE — Bento Grid v8 (Apple/Swiss)                 */
 /* ═══════════════════════════════════════════════════════════ */
+
+.body--contact { background: #f5f5f7; }
+
+.ct { padding: calc(80px + var(--space-2xl)) 0 var(--space-3xl); }
+
+.ct__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Header */
+.ct__header {
+  margin-bottom: var(--space-xl);
+}
+
+.ct__tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+
+.ct__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--title);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Bento Grid ─────────────────────────────────────────── */
+.ct__bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ─── Card base ──────────────────────────────────────────── */
+.ct__card {
+  background: #fff;
+  border-radius: 20px;
+  padding: var(--space-lg);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  cursor: default;
+}
+
+.ct__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.ct__card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--title);
+  margin: var(--space-sm) 0 0.2rem;
+}
+
+.ct__card p {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.ct__card svg { color: var(--accent); }
+
+.ct__card-action {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  transition: color var(--transition);
+}
+
+.ct__card:hover .ct__card-action { color: var(--cta); }
+
+/* Form card — spans 2 rows + full left col */
+.ct__card--form {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  padding: var(--space-xl);
+  cursor: default;
+}
+
+.ct__card--form:hover { transform: none; box-shadow: none; }
+
+.ct__card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--title);
+  margin-bottom: 0.2rem;
+}
+
+.ct__card-sub {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* Clickable cards */
+.ct__card--wa,
+.ct__card--phone,
+.ct__card--email {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ct__card--wa { background: #f0fdf4; }
+.ct__card--wa svg { color: #25D366; stroke: #25D366; }
+.ct__card--wa:hover { box-shadow: 0 8px 30px rgba(37,211,102,0.1); }
+
+/* Hours card */
+.ct__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: var(--space-sm);
+}
+
+.ct__hours > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.ct__hours > div:last-child { border-bottom: none; }
+.ct__hours strong { color: var(--title); font-weight: 500; }
+
+/* Map card — spans 2 cols */
+.ct__card--map {
+  grid-column: 2 / 4;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 240px;
+  cursor: default;
+}
+
+.ct__card--map:hover { transform: none; }
+
+.ct__card--map iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.ct__map-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--title);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.ct__map-label svg { color: var(--accent); stroke: var(--accent); }
+
+/* ─── Form Fields ────────────────────────────────────────── */
+.ct__f-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.ct__f-group {
+  margin-bottom: var(--space-md);
+}
+
+.ct__f-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--title);
+  margin-bottom: 0.4rem;
+}
+
+.ct__opt { font-weight: 400; color: var(--secondary); }
+
+.ct__f-group input,
+.ct__f-group select,
+.ct__f-group textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--title);
+  background: #f9f9f9;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.ct__f-group input:focus,
+.ct__f-group select:focus,
+.ct__f-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(100,169,158,0.1);
+  background: #fff;
+}
+
+.ct__f-group input.error,
+.ct__f-group textarea.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231,76,60,0.08);
+}
+
+.ct__f-group .error-message {
+  font-size: 0.7rem;
+  color: #e74c3c;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.ct__f-group .error-message.visible { display: block; }
+
+.ct__f-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Chips */
+.ct__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.ct__chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ct__chip span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 38px;
+  background: #f9f9f9;
+}
+
+.ct__chip span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(100,169,158,0.06);
+}
+
+.ct__chip input:checked + span {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.ct__chip input:focus-visible + span {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Submit */
+.ct__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: var(--cta);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 14px rgba(231,148,64,0.25);
+  margin-top: var(--space-xs);
+}
+
+.ct__submit:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231,148,64,0.35);
+}
+
+.ct__safe {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: var(--space-sm);
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .ct__bento {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ct__card--form {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .ct__card--map {
+    grid-column: 1 / 3;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ct__bento {
+    grid-template-columns: 1fr;
+  }
+
+  .ct__card--form,
+  .ct__card--map {
+    grid-column: 1;
+  }
+
+  .ct__f-row { grid-template-columns: 1fr; gap: 0; }
+  .ct__card--form { padding: var(--space-lg); }
+  .ct { padding-top: calc(70px + var(--space-lg)); }
+}
 
 .pg { min-height: 100vh; }
 
