@@ -15,7 +15,6 @@
 
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- NAVIGATION -->
   <header>
     <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
@@ -31,7 +30,6 @@
           <li><a href="index.html#rehabilitacion">Rehabilitación</a></li>
           <li><a href="index.html#ortodoncia">Ortodoncia</a></li>
           <li><a href="index.html#turismo">Turismo Médico</a></li>
-          <li><a href="index.html#galeria">Resultados</a></li>
         </ul>
         <a href="contacto.html" class="nav__cta" role="button">Agendar Consulta</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
@@ -41,7 +39,6 @@
     </nav>
   </header>
 
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
     <ul class="mobile-menu__links">
       <li><a href="index.html#trayectoria">Trayectoria</a></li>
@@ -50,80 +47,99 @@
       <li><a href="index.html#rehabilitacion">Rehabilitación</a></li>
       <li><a href="index.html#ortodoncia">Ortodoncia</a></li>
       <li><a href="index.html#turismo">Turismo Médico</a></li>
-      <li><a href="index.html#galeria">Resultados</a></li>
     </ul>
   </div>
 
-  <!-- CONTACT PAGE -->
-  <main class="contact-page" id="main-content">
+  <main id="main-content">
 
-    <!-- Hero Banner -->
-    <section class="contact-hero">
-      <div class="contact-hero__orb contact-hero__orb--1" aria-hidden="true"></div>
-      <div class="contact-hero__orb contact-hero__orb--2" aria-hidden="true"></div>
+    <!-- ═══ CONTACT HERO — Full-width split ═══ -->
+    <section class="ct-hero">
+      <div class="ct-hero__bg" aria-hidden="true"></div>
       <div class="container">
-        <div class="contact-hero__content">
-          <p class="section-tag">Contacto</p>
-          <h1 class="section-title">Comience su<br><em>Transformación</em></h1>
-          <p class="section-subtitle">El primer paso hacia la sonrisa que merece. Respuesta garantizada en menos de 24 horas.</p>
-          <div class="contact-hero__badges">
-            <div class="contact-hero__badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span>Consulta sin compromiso</span>
+        <div class="ct-hero__grid">
+          <div class="ct-hero__text">
+            <p class="section-tag">Contacto</p>
+            <h1 class="ct-hero__title">Comience su<br><em>Transformación</em></h1>
+            <p class="ct-hero__subtitle">El primer paso hacia la sonrisa que merece. Cuéntenos su caso y recibirá una valoración personalizada.</p>
+            <div class="ct-hero__badges">
+              <div class="ct-hero__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Consulta sin compromiso
+              </div>
+              <div class="ct-hero__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Respuesta en 24h
+              </div>
+              <div class="ct-hero__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Atención bilingüe
+              </div>
             </div>
-            <div class="contact-hero__badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Respuesta en 24h</span>
-            </div>
-            <div class="contact-hero__badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              <span>Atención bilingüe</span>
-            </div>
+          </div>
+          <div class="ct-hero__image">
+            <img src="img/dr-sergio-rios-hero.jpg" alt="Dr. Sergio Ríos" class="ct-hero__photo" loading="eager">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Content -->
-    <section class="contact-content">
+    <!-- ═══ CONTACT BODY ═══ -->
+    <section class="ct-body">
       <div class="container">
-        <div class="contact__grid">
 
-          <!-- Form Card -->
-          <div class="contact__form-card reveal-left">
-            <div class="contact__form-header">
-              <h2 class="contact__form-title">Cuéntenos sobre su caso</h2>
-              <p class="contact__form-subtitle">Cada sonrisa es única. Comparta sus necesidades y le crearemos un plan personalizado.</p>
-            </div>
+        <!-- Steps indicator -->
+        <div class="ct-steps reveal">
+          <div class="ct-step ct-step--active">
+            <span class="ct-step__num">1</span>
+            <span class="ct-step__label">Cuéntenos su caso</span>
+          </div>
+          <div class="ct-step__line" aria-hidden="true"></div>
+          <div class="ct-step">
+            <span class="ct-step__num">2</span>
+            <span class="ct-step__label">Valoración gratuita</span>
+          </div>
+          <div class="ct-step__line" aria-hidden="true"></div>
+          <div class="ct-step">
+            <span class="ct-step__num">3</span>
+            <span class="ct-step__label">Plan personalizado</span>
+          </div>
+        </div>
 
+        <div class="ct-grid">
+
+          <!-- ─── FORM ─── -->
+          <div class="ct-form-card reveal">
             <form id="contactForm" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="nombre">Nombre Completo *</label>
-                  <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo" autocomplete="name">
-                  <p class="error-message" role="alert"></p>
+
+              <div class="ct-form__section">
+                <h2 class="ct-form__heading">Datos Personales</h2>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="nombre">Nombre Completo <span class="form-req">*</span></label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo" autocomplete="name">
+                    <p class="error-message" role="alert"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Correo Electrónico <span class="form-req">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" autocomplete="email">
+                    <p class="error-message" role="alert"></p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="email">Correo Electrónico *</label>
-                  <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" autocomplete="email">
-                  <p class="error-message" role="alert"></p>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="telefono">Teléfono / WhatsApp <span class="form-req">*</span></label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="+57 300 000 0000" autocomplete="tel">
+                    <p class="error-message" role="alert"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="pais">País de Residencia</label>
+                    <input type="text" id="pais" name="pais" placeholder="Colombia" autocomplete="country-name">
+                  </div>
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="telefono">Teléfono / WhatsApp *</label>
-                  <input type="tel" id="telefono" name="telefono" required placeholder="+57 300 000 0000" autocomplete="tel">
-                  <p class="error-message" role="alert"></p>
-                </div>
-                <div class="form-group">
-                  <label for="pais">País de Residencia</label>
-                  <input type="text" id="pais" name="pais" placeholder="Colombia" autocomplete="country-name">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="servicio">Servicio de Interés *</label>
+              <div class="ct-form__section">
+                <h2 class="ct-form__heading">¿Qué servicio le interesa?</h2>
                 <div class="form-service-grid">
                   <label class="form-service-option">
                     <input type="radio" name="servicio" value="implantologia">
@@ -164,15 +180,18 @@
                     <input type="radio" name="servicio" value="otro">
                     <span class="form-service-card">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                      <span>No estoy seguro</span>
+                      <span>Consulta General</span>
                     </span>
                   </label>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="mensaje">Cuéntenos sobre su caso</label>
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describa brevemente su situación dental, lo que busca lograr, o cualquier pregunta que tenga..."></textarea>
+              <div class="ct-form__section">
+                <h2 class="ct-form__heading">Detalles Adicionales</h2>
+                <div class="form-group">
+                  <label for="mensaje">Describa su situación o consulta</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Qué le gustaría lograr? ¿Tiene alguna condición dental actual? Cuéntenos todo lo que considere relevante..."></textarea>
+                </div>
               </div>
 
               <button type="submit" class="btn btn--primary btn--lg btn--full">
@@ -187,86 +206,59 @@
             </form>
           </div>
 
-          <!-- Info Side -->
-          <div class="contact__info-side reveal-right">
+          <!-- ─── SIDEBAR ─── -->
+          <aside class="ct-sidebar">
 
-            <!-- Quick Contact -->
-            <div class="contact__quick-card">
-              <h3 class="contact__quick-title">Contacto Directo</h3>
-              <div class="contact__quick-items">
-                <a href="https://wa.me/573000000000" class="contact__quick-item contact__quick-item--whatsapp" target="_blank" rel="noopener noreferrer">
-                  <div class="contact__quick-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                  </div>
-                  <div>
-                    <span class="contact__quick-label">WhatsApp</span>
-                    <span class="contact__quick-value">+57 300 000 0000</span>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact__quick-arrow" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
-                </a>
-                <a href="tel:+576040000000" class="contact__quick-item">
-                  <div class="contact__quick-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <div>
-                    <span class="contact__quick-label">Teléfono</span>
-                    <span class="contact__quick-value">+57 (604) 000 0000</span>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact__quick-arrow" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
-                </a>
-                <a href="mailto:contacto@drsergiorios.com" class="contact__quick-item">
-                  <div class="contact__quick-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  </div>
-                  <div>
-                    <span class="contact__quick-label">Email</span>
-                    <span class="contact__quick-value">contacto@drsergiorios.com</span>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="contact__quick-arrow" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
-                </a>
-              </div>
+            <div class="ct-sidebar__card ct-sidebar__card--cta reveal">
+              <h3 class="ct-sidebar__title">¿Prefiere llamar?</h3>
+              <p class="ct-sidebar__desc">Hable directamente con nuestro equipo.</p>
+              <a href="https://wa.me/573000000000" class="ct-wa-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>Escribir por WhatsApp</span>
+              </a>
+              <a href="tel:+576040000000" class="ct-phone-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +57 (604) 000 0000
+              </a>
+              <a href="mailto:contacto@drsergiorios.com" class="ct-phone-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                contacto@drsergiorios.com
+              </a>
             </div>
 
-            <!-- Schedule -->
-            <div class="contact__schedule-card reveal">
-              <h3 class="contact__schedule-title">Horario de Atención</h3>
-              <div class="contact__schedule-rows">
-                <div class="contact__schedule-row">
+            <div class="ct-sidebar__card reveal">
+              <h3 class="ct-sidebar__title">Horario</h3>
+              <div class="ct-schedule">
+                <div class="ct-schedule__row">
                   <span>Lunes - Viernes</span>
-                  <span class="contact__schedule-time">8:00 AM - 6:00 PM</span>
+                  <span class="ct-schedule__time">8:00 AM - 6:00 PM</span>
                 </div>
-                <div class="contact__schedule-row">
+                <div class="ct-schedule__row">
                   <span>Sábado</span>
-                  <span class="contact__schedule-time">8:00 AM - 1:00 PM</span>
+                  <span class="ct-schedule__time">8:00 AM - 1:00 PM</span>
                 </div>
-                <div class="contact__schedule-row contact__schedule-row--closed">
+                <div class="ct-schedule__row ct-schedule__row--off">
                   <span>Domingo</span>
-                  <span class="contact__schedule-time">Cerrado</span>
+                  <span class="ct-schedule__time">Cerrado</span>
                 </div>
               </div>
             </div>
 
-            <!-- Location -->
-            <div class="contact__location-card reveal">
-              <h3 class="contact__location-title">Ubicación</h3>
-              <p class="contact__location-address">El Poblado, Medellín<br>Antioquia, Colombia</p>
-              <div class="contact__map">
-                <div class="contact__map-placeholder">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5" aria-hidden="true">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  <p>Google Maps</p>
-                </div>
+            <div class="ct-sidebar__card reveal">
+              <h3 class="ct-sidebar__title">Ubicación</h3>
+              <p class="ct-sidebar__address">El Poblado, Medellín<br>Antioquia, Colombia</p>
+              <div class="ct-map">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#64a99e" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Ver en Google Maps</span>
               </div>
             </div>
 
-          </div>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
