@@ -23,6 +23,7 @@
   <!-- ═══════════════════════════════════════════════════ -->
   <header>
     <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+      <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
         <a href="#hero" class="nav__logo" aria-label="Dr. Sergio Ríos — Inicio">
           <span class="nav__logo-name">Dr. Sergio Ríos</span>
@@ -234,7 +235,7 @@
     <section class="service service--smile" id="diseno-sonrisa" aria-label="Diseño de Sonrisa">
       <div class="container">
         <div class="service__split">
-          <div class="service__visual reveal">
+          <div class="service__visual reveal-left">
             <div class="service__magazine-frame">
               <div class="service__magazine-img">
                 <img src="img/smile-veneers-lateral.jpg" alt="Resultado de diseño de sonrisa con carillas de porcelana ultra-delgadas" loading="lazy" class="service__magazine-photo">
@@ -282,7 +283,7 @@
     <!-- ═══════════════════════════════════════════════════ -->
     <section class="service service--rehab" id="rehabilitacion" aria-label="Rehabilitación Oral">
       <div class="container">
-        <div class="service__case-study reveal">
+        <div class="service__case-study reveal-scale">
           <div class="service__case-header">
             <p class="section-tag">Especialidad 03</p>
             <h2 class="section-title">Rehabilitación<br><em>Oral Completa</em></h2>
@@ -355,7 +356,7 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
-          <div class="service__visual reveal">
+          <div class="service__visual reveal-right">
             <div class="service__ortho-frame">
               <img src="img/face-redhead.jpg" alt="Paciente sonriendo con resultado de ortodoncia invisible — alineación perfecta" loading="lazy" class="service__ortho-photo">
             </div>
@@ -430,11 +431,27 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
+    <!-- MARQUEE — Infinite Scroll                           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item"><span class="marquee__dot"></span> Implantología Avanzada</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Diseño de Sonrisa</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Rehabilitación Oral</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Ortodoncia Invisible</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Carga Inmediata</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Carillas de Porcelana</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> Turismo Médico</span>
+        <span class="marquee__item"><span class="marquee__dot"></span> All-on-4</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
     <!-- 7. TURISMO MÉDICO (THE BRIDGE)                      -->
     <!-- ═══════════════════════════════════════════════════ -->
     <section class="turismo" id="turismo" aria-label="Turismo Médico">
       <div class="container">
-        <div class="turismo__banner reveal">
+        <div class="turismo__banner reveal-scale">
           <div class="turismo__orb" aria-hidden="true"></div>
           <div class="turismo__content">
             <p class="section-tag section-tag--light">The Bridge</p>
@@ -549,7 +566,7 @@
     <!-- ═══════════════════════════════════════════════════ -->
     <section class="cta-final" aria-label="Llamada a la acción">
       <div class="container">
-        <div class="cta-final__card reveal">
+        <div class="cta-final__card reveal-scale">
           <h2 class="cta-final__title">¿Listo para transformar<br><em>su sonrisa?</em></h2>
           <p class="cta-final__desc">Agende su consulta de valoración y dé el primer paso hacia la sonrisa que merece.</p>
           <div class="cta-final__actions">
