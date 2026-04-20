@@ -1948,6 +1948,7 @@ ul { list-style: none; }
 @keyframes ctaFloat {
   0% { transform: translateY(0); }
   100% { transform: translateY(-6px); }
+}
 
 /* ═══════════════════════════════════════════════════════════ */
 /* RESPONSIVE — 375px, 768px, 1024px, 1440px                 */
