@@ -2041,7 +2041,7 @@ ul { list-style: none; }
 
 /* Hero — Dark centered */
 .cf-hero {
-  padding: calc(90px + var(--space-2xl)) 0 var(--space-2xl);
+  padding: calc(90px + var(--space-3xl)) 0 var(--space-3xl);
   background: var(--bg-dark);
   text-align: center;
   position: relative;
@@ -2095,7 +2095,7 @@ ul { list-style: none; }
 
 /* Trust bar */
 .cf-trust {
-  padding: var(--space-lg) 0;
+  padding: var(--space-xl) 0;
   background: var(--bg-white);
   border-bottom: 1px solid var(--border);
 }
@@ -2134,7 +2134,7 @@ ul { list-style: none; }
 
 /* Form section */
 .cf-form-section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-3xl) 0;
   background: var(--bg);
 }
 
@@ -2143,14 +2143,16 @@ ul { list-style: none; }
   margin: 0 auto;
   background: var(--bg-white);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--border);
 }
 
 .cf-form-header {
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
 }
 
 .cf-form-header__title {
@@ -2173,7 +2175,7 @@ ul { list-style: none; }
 }
 
 .cf-form__field {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .cf-form__field label {
@@ -2284,7 +2286,7 @@ ul { list-style: none; }
 
 /* Contact cards — 3 col */
 .cf-contact {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-3xl) 0;
   background: var(--bg-white);
 }
 
@@ -2294,12 +2296,26 @@ ul { list-style: none; }
   gap: var(--space-md);
 }
 
+.cf-contact__grid-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.cf-contact__grid-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.cf-contact__grid-title em { font-style: italic; color: var(--accent); }
+
 .cf-contact__card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   background: var(--bg);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
@@ -2340,8 +2356,8 @@ ul { list-style: none; }
 
 /* Location — Map + Info */
 .cf-location {
-  padding: 0 0 var(--space-3xl);
-  background: var(--bg-white);
+  padding: var(--space-3xl) 0;
+  background: var(--bg);
 }
 
 .cf-location__grid {
@@ -2354,9 +2370,23 @@ ul { list-style: none; }
   box-shadow: var(--shadow-md);
 }
 
+.cf-location__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.cf-location__header-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.cf-location__header-title em { font-style: italic; color: var(--accent); }
+
 .cf-location__map {
-  min-height: 320px;
-  background: var(--bg);
+  min-height: 360px;
+  background: var(--bg-white);
 }
 
 .cf-location__map iframe {
