@@ -31,6 +31,113 @@
     elements.forEach(function (el) { observer.observe(el); });
   }
 
+  /* ─── Service Progress Connector ─────────────────────── */
+  function initServiceProgress() {
+    var progress = document.querySelector('.svc-progress');
+    var fill = document.querySelector('.svc-progress__fill');
+    var dots = document.querySelectorAll('.svc-progress__dot');
+    var sections = document.querySelectorAll('.svc');
+
+    if (!progress || !sections.length || !dots.length) return;
+
+    var sectionIds = ['implantologia', 'diseno-sonrisa', 'rehabilitacion', 'ortodoncia'];
+
+    // Click dots to scroll to section
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        var target = document.getElementById(sectionIds[i]);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    function onScroll() {
+      var vh = window.innerHeight;
+      var firstRect = sections[0].getBoundingClientRect();
+      var lastRect = sections[sections.length - 1].getBoundingClientRect();
+
+      // Show/hide progress
+      var inRange = firstRect.top < vh * 0.8 && lastRect.bottom > vh * 0.2;
+      if (inRange) {
+        progress.classList.add('svc-progress--visible');
+      } else {
+        progress.classList.remove('svc-progress--visible');
+      }
+
+      // Calculate fill and active dots
+      var activeIndex = -1;
+      sections.forEach(function (sec, i) {
+        var rect = sec.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        if (center < vh * 0.6) activeIndex = i;
+      });
+
+      // Fill bar
+      var fillPercent = activeIndex >= 0 ? ((activeIndex + 1) / sections.length) * 100 : 0;
+      if (fill) fill.style.height = fillPercent + '%';
+
+      // Update dots
+      dots.forEach(function (dot, i) {
+        dot.classList.remove('svc-progress__dot--active', 'svc-progress__dot--passed');
+        if (i === activeIndex) {
+          dot.classList.add('svc-progress__dot--active');
+        } else if (i < activeIndex) {
+          dot.classList.add('svc-progress__dot--passed');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ─── Service Section Visibility (left bar + number parallax) ─ */
+  function initServiceSectionEffects() {
+    var sections = document.querySelectorAll('.svc');
+    if (!sections.length) return;
+
+    // Section visibility for left accent bar
+    var sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach(function (sec) { sectionObserver.observe(sec); });
+
+    // Parallax on service numbers
+    if (prefersReducedMotion) return;
+
+    var numbers = document.querySelectorAll('.svc__number');
+    var ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      requestAnimationFrame(function () {
+        var vh = window.innerHeight;
+        numbers.forEach(function (num) {
+          var rect = num.getBoundingClientRect();
+          if (rect.top < vh && rect.bottom > 0) {
+            var progress = (vh - rect.top) / (vh + rect.height);
+            var offset = (progress - 0.5) * -30;
+            var scale = 1 + Math.abs(progress - 0.5) * 0.04;
+            num.style.transform = 'translateY(' + offset + 'px) scale(' + scale + ')';
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   /* ─── Hero Text Typewriter / Split ───────────────────── */
   function initHeroTextAnimation() {
     if (prefersReducedMotion) return;
@@ -331,7 +438,11 @@
 
   /* ─── Contact Form Validation ───────────────────────── */
   function initContactForm() {
-    var form = document.getElementById('contactForm');
+    var forms = document.querySelectorAll('#contactForm, #contactFormBottom');
+    forms.forEach(function (form) { setupForm(form); });
+  }
+
+  function setupForm(form) {
     if (!form) return;
 
     var fields = form.querySelectorAll('[required]');
@@ -401,9 +512,199 @@
     }
   }
 
+  /* ─── Discover More — Expand/Collapse Panels ────────── */
+  function initDiscoverPanels() {
+    var buttons = document.querySelectorAll('.svc__discover-btn');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panelId = btn.getAttribute('aria-controls');
+        var panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+        // Close any other open panels first
+        buttons.forEach(function (otherBtn) {
+          if (otherBtn === btn) return;
+          var otherId = otherBtn.getAttribute('aria-controls');
+          var otherPanel = document.getElementById(otherId);
+          if (otherBtn.getAttribute('aria-expanded') === 'true') {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherBtn.querySelector('span').textContent = 'Descubrir más';
+            if (otherPanel) {
+              otherPanel.setAttribute('aria-hidden', 'true');
+              cleanupDiscoverPanel(otherPanel);
+            }
+          }
+        });
+
+        // Toggle current panel
+        if (isExpanded) {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.querySelector('span').textContent = 'Descubrir más';
+          panel.setAttribute('aria-hidden', 'true');
+          cleanupDiscoverPanel(panel);
+        } else {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.querySelector('span').textContent = 'Ver menos';
+          panel.setAttribute('aria-hidden', 'false');
+
+          // Fire dynamic enhancements
+          initDiscoverGalleryTilt(panel);
+          initDiscoverParticles(panel);
+          initDiscoverHeadingReveal(panel);
+
+          // Smooth scroll to panel after animation
+          setTimeout(function () {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 350);
+        }
+      });
+    });
+  }
+
+  /* ── Gallery 3D tilt on mouse move ─────────────── */
+  function initDiscoverGalleryTilt(panel) {
+    if (prefersReducedMotion) return;
+
+    var gallery = panel.querySelector('.svc__discover-gallery');
+    if (!gallery) return;
+
+    function handleMove(e) {
+      var rect = gallery.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      var tiltX = y * -8;
+      var tiltY = x * 8;
+
+      gallery.style.transform = 'perspective(800px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale(1.02)';
+      gallery.style.transition = 'transform 0.1s ease-out';
+    }
+
+    function handleLeave() {
+      gallery.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      gallery.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    }
+
+    gallery.addEventListener('mousemove', handleMove);
+    gallery.addEventListener('mouseleave', handleLeave);
+
+    gallery._discoverTilt = { move: handleMove, leave: handleLeave };
+  }
+
+  /* ── Floating particles ────────────────────────── */
+  function initDiscoverParticles(panel) {
+    if (prefersReducedMotion) return;
+
+    var grid = panel.querySelector('.svc__discover-grid');
+    if (!grid) return;
+
+    var particleCount = 8;
+    var particles = [];
+
+    for (var i = 0; i < particleCount; i++) {
+      var dot = document.createElement('span');
+      dot.className = 'svc__discover-particle';
+      dot.setAttribute('aria-hidden', 'true');
+
+      var size = 3 + Math.random() * 5;
+      var startX = Math.random() * 100;
+      var startY = Math.random() * 100;
+      var duration = 4 + Math.random() * 6;
+      var delay = Math.random() * 3;
+      var isAccent = Math.random() > 0.5;
+
+      dot.style.cssText =
+        'position:absolute;' +
+        'width:' + size + 'px;' +
+        'height:' + size + 'px;' +
+        'border-radius:50%;' +
+        'background:' + (isAccent ? 'var(--accent)' : 'var(--cta)') + ';' +
+        'left:' + startX + '%;' +
+        'top:' + startY + '%;' +
+        'opacity:0;' +
+        'pointer-events:none;' +
+        'z-index:0;' +
+        'animation:discoverFloat ' + duration + 's ease-in-out ' + delay + 's infinite,' +
+                  'discoverDotPulse ' + (duration * 0.6) + 's ease-in-out ' + delay + 's infinite;';
+
+      grid.appendChild(dot);
+      particles.push(dot);
+    }
+
+    grid._discoverParticles = particles;
+  }
+
+  /* ── Heading letter-by-letter reveal ────────────── */
+  function initDiscoverHeadingReveal(panel) {
+    if (prefersReducedMotion) return;
+
+    var heading = panel.querySelector('.svc__discover-heading');
+    if (!heading || heading._discoverRevealed) return;
+
+    var text = heading.textContent;
+    heading.textContent = '';
+    heading._discoverRevealed = true;
+
+    var chars = text.split('');
+    chars.forEach(function (char, i) {
+      var span = document.createElement('span');
+      span.textContent = char;
+      span.style.cssText =
+        'display:inline-block;' +
+        'opacity:0;' +
+        'transform:translateY(12px) rotate(3deg);' +
+        'transition:opacity 0.3s ease ' + (i * 25 + 200) + 'ms,' +
+                    'transform 0.4s cubic-bezier(0.34,1.56,0.64,1) ' + (i * 25 + 200) + 'ms;';
+      if (char === ' ') span.style.width = '0.3em';
+      heading.appendChild(span);
+    });
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var spans = heading.querySelectorAll('span');
+        spans.forEach(function (s) {
+          s.style.opacity = '1';
+          s.style.transform = 'translateY(0) rotate(0)';
+        });
+      });
+    });
+  }
+
+  /* ── Cleanup when panel closes ─────────────────── */
+  function cleanupDiscoverPanel(panel) {
+    // Remove particles
+    var grid = panel.querySelector('.svc__discover-grid');
+    if (grid && grid._discoverParticles) {
+      grid._discoverParticles.forEach(function (dot) { dot.remove(); });
+      grid._discoverParticles = null;
+    }
+
+    // Remove tilt listeners
+    var gallery = panel.querySelector('.svc__discover-gallery');
+    if (gallery && gallery._discoverTilt) {
+      gallery.removeEventListener('mousemove', gallery._discoverTilt.move);
+      gallery.removeEventListener('mouseleave', gallery._discoverTilt.leave);
+      gallery.style.transform = '';
+      gallery._discoverTilt = null;
+    }
+
+    // Reset heading for re-animation on next open
+    var heading = panel.querySelector('.svc__discover-heading');
+    if (heading && heading._discoverRevealed) {
+      var text = heading.textContent;
+      heading.textContent = text;
+      heading._discoverRevealed = false;
+    }
+  }
+
   /* ─── Initialize ────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
+    initServiceProgress();
+    initServiceSectionEffects();
     initHeroTextAnimation();
     initParallax();
     initStickyNav();
@@ -416,5 +717,6 @@
     initCounterAnimation();
     initMarquee();
     initContactForm();
+    initDiscoverPanels();
   });
 })();
