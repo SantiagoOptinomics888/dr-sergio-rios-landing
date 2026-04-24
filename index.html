@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=12">
-  <link rel="stylesheet" href="css/doctormike-layer.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=28">
+  <link rel="stylesheet" href="css/doctormike-layer.css?v=4">
 </head>
 <body>
 
@@ -118,7 +118,8 @@
       <!-- Content split: text left / photo right -->
       <div class="dm-hero__content">
         <div class="dm-hero__text">
-          <h1 class="dm-hero__title">Dr. Sergio<br>Ríos</h1>
+          <p class="dm-hero__eyebrow">Odontólogo</p>
+          <h1 class="dm-hero__title">Sergio Ríos</h1>
           <p class="dm-hero__subtitle">
             Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
           </p>
@@ -169,7 +170,7 @@
         </div>
         <div class="tray__bio reveal">
           <p class="tray__tag">Trayectoria</p>
-          <h2 class="tray__name">Dr. Sergio Augusto Ríos</h2>
+          <h2 class="tray__name">Sergio Ríos</h2>
           <p class="tray__role">Arquitecto de la Sonrisa</p>
           <blockquote class="tray__quote">
             "Mi filosofía no es simplemente restaurar dientes, es devolver la seguridad a través de la precisión quirúrgica y la armonía facial."
@@ -225,39 +226,103 @@
       </div>
     </div>
 
-    <!-- 3. IMPLANTOLOGÍA AVANZADA -->
-    <section class="svc" id="implantologia" aria-label="Implantología Avanzada">
+    <!-- 3. IMPLANTOLOGÍA AVANZADA — TEMPLATE A: Unified scrollytelling -->
+    <section class="svc svc--tplA" id="implantologia" aria-label="Implantología Avanzada" data-svc-index="Servicio 01 / 04">
       <div class="container">
-        <div class="svc__divider reveal"></div>
-        <div class="svc__layout">
-          <div class="svc__text reveal">
-            <span class="svc__number" aria-hidden="true">01</span>
-            <p class="section-tag">Especialidad</p>
-            <h2 class="svc__title">Implantología<br><em>Avanzada</em></h2>
-            <p class="svc__desc">Recupere su sonrisa con tecnología de vanguardia y los más altos estándares quirúrgicos internacionales.</p>
-            <div class="svc__pills">
-              <span class="svc__pill">Carga Inmediata</span>
-              <span class="svc__pill">Cirugía Guiada 3D</span>
-              <span class="svc__pill">All-on-4</span>
-              <span class="svc__pill">Mínima Invasión</span>
+
+        <div class="svc-scroll svc-scroll--unified" aria-label="Implantología avanzada y sus cuatro pilares técnicos">
+          <div class="svc-scroll__grid">
+
+            <!-- LEFT — pinned media stage (hero + 4 features) -->
+            <div class="svc-scroll__media">
+              <div class="svc-scroll__stage">
+                <img data-step="0" src="img/rehab-clinical.jpg" alt="Implantología avanzada — visión integral" loading="lazy" class="svc-scroll__img svc-scroll__img--active">
+                <img data-step="1" src="img/teeth-clinical.jpg" alt="Cirugía guiada 3D con planificación digital" loading="lazy" class="svc-scroll__img">
+                <img data-step="2" src="img/smile-male-front.jpg" alt="Resultado de carga inmediata" loading="lazy" class="svc-scroll__img">
+                <img data-step="3" src="img/smile-veneers-lateral.jpg" alt="Rehabilitación All-on-4" loading="lazy" class="svc-scroll__img">
+                <img data-step="4" src="img/smile-lateral-closeup.jpg" alt="Cirugía mínimamente invasiva" loading="lazy" class="svc-scroll__img">
+                <svg class="svc-scroll__accent" viewBox="0 0 400 500" fill="none" aria-hidden="true">
+                  <path d="M15 30 C 45 5, 365 -10, 385 50 C 400 180, 400 320, 380 470 C 330 495, 80 500, 25 475 C 5 400, -5 180, 15 30 Z"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
             </div>
-            <div class="svc__actions">
-              <a href="contacto.html" class="btn btn--primary">
-                <span>Consultar</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <button type="button" class="svc__link svc__discover-btn" aria-expanded="false" aria-controls="discover-implantologia">
-                <span>Descubrir más</span>
-                <svg class="svc__discover-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="svc__visual reveal-right">
-            <div class="svc__img-wrapper">
-              <img src="img/rehab-clinical.jpg" alt="Caso clínico de implantología avanzada — resultado final" loading="lazy" class="svc__img">
-            </div>
-            <div class="svc__img-accent" aria-hidden="true">
-              <img src="img/smile-lateral-closeup.jpg" alt="" loading="lazy" class="svc__img svc__img--small" aria-hidden="true">
+
+            <!-- RIGHT — scrolling steps (0 = hero intro, 1–4 = features) -->
+            <div class="svc-scroll__steps">
+
+              <!-- Step 0 — HERO (title, pills, CTAs) -->
+              <div class="svc-scroll__step svc-scroll__step--hero is-active" data-step="0">
+                <span class="svc__number" aria-hidden="true">01</span>
+                <p class="section-tag">Especialidad</p>
+                <h2 class="svc__title">Implantología<br><em>Avanzada</em></h2>
+                <p class="svc__desc">Recupere su sonrisa con tecnología de vanguardia y los más altos estándares quirúrgicos internacionales.</p>
+                <div class="svc__pills">
+                  <span class="svc__pill">Carga Inmediata</span>
+                  <span class="svc__pill">Cirugía Guiada 3D</span>
+                  <span class="svc__pill">All-on-4</span>
+                  <span class="svc__pill">Mínima Invasión</span>
+                </div>
+                <div class="svc__actions">
+                  <a href="contacto.html" class="btn btn--primary">
+                    <span>Consultar</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                  <button type="button" class="svc__link svc__discover-btn" aria-expanded="false" aria-controls="discover-implantologia">
+                    <span>Descubrir más</span>
+                    <svg class="svc__discover-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+                  </button>
+                </div>
+                <p class="svc-scroll__hint" aria-hidden="true">
+                  <span>Desliza para descubrir nuestros 4 pilares técnicos</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </p>
+              </div>
+
+              <div class="svc-scroll__step" data-step="1">
+                <p class="svc-scroll__step-num">01 / 04 · Planificación digital</p>
+                <h4 class="svc-scroll__step-title">Cirugía Guiada 3D</h4>
+                <p class="svc-scroll__step-text">Tomografía computarizada y software especializado para planificar cada implante con precisión milimétrica. Antes del primer corte, ya conocemos el resultado final.</p>
+                <ul class="svc-scroll__step-list">
+                  <li>Escáner intraoral digital</li>
+                  <li>Férula quirúrgica personalizada</li>
+                  <li>Simulación virtual del resultado</li>
+                </ul>
+              </div>
+
+              <div class="svc-scroll__step" data-step="2">
+                <p class="svc-scroll__step-num">02 / 04 · Recuperación acelerada</p>
+                <h4 class="svc-scroll__step-title">Carga Inmediata</h4>
+                <p class="svc-scroll__step-text">Dientes fijos el mismo día de la cirugía en casos seleccionados. Sale del consultorio con su sonrisa restaurada, sin meses de espera con provisionales removibles.</p>
+                <ul class="svc-scroll__step-list">
+                  <li>Provisional estético en 24h</li>
+                  <li>Protocolo quirúrgico de un solo tiempo</li>
+                  <li>Función masticatoria desde el primer día</li>
+                </ul>
+              </div>
+
+              <div class="svc-scroll__step" data-step="3">
+                <p class="svc-scroll__step-num">03 / 04 · Solución integral</p>
+                <h4 class="svc-scroll__step-title">All-on-4</h4>
+                <p class="svc-scroll__step-text">Rehabilitación completa de toda la arcada con solo cuatro implantes estratégicamente colocados. Solución definitiva y predecible para pacientes con pérdida total dental.</p>
+                <ul class="svc-scroll__step-list">
+                  <li>Implantes angulados de alta estabilidad</li>
+                  <li>Sin necesidad de injertos óseos</li>
+                  <li>Prótesis fija sobre implantes</li>
+                </ul>
+              </div>
+
+              <div class="svc-scroll__step" data-step="4">
+                <p class="svc-scroll__step-num">04 / 04 · Confort máximo</p>
+                <h4 class="svc-scroll__step-title">Mínima Invasión</h4>
+                <p class="svc-scroll__step-text">Técnicas flapless que reducen incisiones, dolor postoperatorio y tiempos de recuperación. Su rutina habitual de vuelta en días, no semanas.</p>
+                <ul class="svc-scroll__step-list">
+                  <li>Sin colgajos ni suturas extensas</li>
+                  <li>Postoperatorio controlado</li>
+                  <li>Reintegro laboral en 48–72h</li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
@@ -320,8 +385,8 @@
       </div>
     </section>
 
-    <!-- 4. DISEÑO DE SONRISA -->
-    <section class="svc svc--alt" id="diseno-sonrisa" aria-label="Diseño de Sonrisa">
+    <!-- 4. DISEÑO DE SONRISA — TEMPLATE B: Editorial split with polaroid -->
+    <section class="svc svc--alt svc--tplB" id="diseno-sonrisa" aria-label="Diseño de Sonrisa" data-svc-index="Servicio 02 / 04">
       <div class="container">
         <div class="svc__divider reveal"></div>
         <div class="svc__layout svc__layout--reverse">
@@ -419,8 +484,8 @@
       </div>
     </section>
 
-    <!-- 5. REHABILITACIÓN ORAL COMPLETA -->
-    <section class="svc" id="rehabilitacion" aria-label="Rehabilitación Oral">
+    <!-- 5. REHABILITACIÓN ORAL COMPLETA — TEMPLATE C: Data magazine spread -->
+    <section class="svc svc--tplC" id="rehabilitacion" aria-label="Rehabilitación Oral" data-svc-index="Servicio 03 / 04">
       <div class="container">
         <div class="svc__divider reveal"></div>
         <div class="svc__layout">
@@ -522,8 +587,8 @@
       </div>
     </section>
 
-    <!-- 6. ORTODONCIA INVISIBLE -->
-    <section class="svc svc--alt" id="ortodoncia" aria-label="Ortodoncia Invisible">
+    <!-- 6. ORTODONCIA INVISIBLE — TEMPLATE D: Dark gallery -->
+    <section class="svc svc--alt svc--tplD" id="ortodoncia" aria-label="Ortodoncia Invisible" data-svc-index="Servicio 04 / 04">
       <div class="container">
         <div class="svc__divider reveal"></div>
         <div class="svc__layout svc__layout--reverse">
@@ -550,12 +615,15 @@
               </button>
             </div>
           </div>
-          <div class="svc__visual reveal-left">
-            <div class="svc__img-wrapper">
-              <img src="img/face-redhead.jpg" alt="Paciente sonriendo con ortodoncia invisible" loading="lazy" class="svc__img">
+          <div class="svc__visual reveal-left svc__tplD-gallery">
+            <div class="svc__tplD-tile svc__tplD-tile--1">
+              <img src="img/face-redhead.jpg" alt="Paciente sonriendo con ortodoncia invisible" loading="lazy">
             </div>
-            <div class="svc__img-accent svc__img-accent--left" aria-hidden="true">
-              <img src="img/smile-result-female.jpg" alt="" loading="lazy" class="svc__img svc__img--small" aria-hidden="true">
+            <div class="svc__tplD-tile svc__tplD-tile--2">
+              <img src="img/smile-result-female.jpg" alt="Resultado de alineación dental" loading="lazy">
+            </div>
+            <div class="svc__tplD-tile svc__tplD-tile--3">
+              <img src="img/smile-front-female.jpg" alt="Sonrisa alineada con ortodoncia" loading="lazy">
             </div>
           </div>
         </div>
@@ -734,129 +802,230 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- 8. GALERÍA DE ÉXITO (Before / After)                -->
+    <!-- 8. GALERÍA — UNVRS-replica editorial carousel        -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section class="galeria" id="galeria" aria-label="Galería de resultados">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="section-tag">Resultados</p>
-          <h2 class="section-title">Galería de<br><em>Éxito</em></h2>
-          <p class="section-subtitle">Casos reales. Resultados reales. Confianza renovada.</p>
+    <section class="galeria galeria--unvrs" id="galeria" aria-label="Galería de resultados">
+
+      <header class="galeria__header">
+        <div class="galeria__title-block">
+          <p class="galeria__eyebrow">Portafolio Clínico<sup class="galeria__title-sup">05</sup></p>
+          <h2 class="galeria__title">Casos de <em>Éxito</em></h2>
+          <p class="galeria__subtitle">Resultados reales de pacientes. Pase el cursor sobre cada caso para descubrir el antes y después de la transformación.</p>
         </div>
-        <div class="galeria__grid" role="list">
-          <div class="galeria__item reveal" role="listitem">
-            <div class="galeria__before-after">
-              <div class="galeria__img galeria__img--before">
-                <img src="img/smile-male-front.jpg" alt="Antes — caso de diseño de sonrisa" loading="lazy" class="galeria__photo">
-                <span class="galeria__label">Antes</span>
-              </div>
-              <div class="galeria__img galeria__img--after">
-                <img src="img/smile-front-female.jpg" alt="Después — sonrisa armónica con carillas" loading="lazy" class="galeria__photo">
-                <span class="galeria__label galeria__label--after">Después</span>
-              </div>
-            </div>
-            <p class="galeria__caption">Diseño de sonrisa &mdash; carillas de porcelana</p>
-          </div>
-          <div class="galeria__item reveal" role="listitem">
-            <div class="galeria__before-after">
-              <div class="galeria__img galeria__img--before">
-                <img src="img/teeth-clinical.jpg" alt="Antes — caso clínico de rehabilitación" loading="lazy" class="galeria__photo">
-                <span class="galeria__label">Antes</span>
-              </div>
-              <div class="galeria__img galeria__img--after">
-                <img src="img/smile-veneers-lateral.jpg" alt="Después — resultado de carillas laterales" loading="lazy" class="galeria__photo">
-                <span class="galeria__label galeria__label--after">Después</span>
-              </div>
-            </div>
-            <p class="galeria__caption">Rehabilitación completa con implantes</p>
-          </div>
-          <div class="galeria__item reveal" role="listitem">
-            <div class="galeria__before-after">
-              <div class="galeria__img galeria__img--before">
-                <img src="img/lips-closeup.jpg" alt="Antes — detalle estético dental" loading="lazy" class="galeria__photo">
-                <span class="galeria__label">Antes</span>
-              </div>
-              <div class="galeria__img galeria__img--after">
-                <img src="img/veneers-lateral-detail.jpg" alt="Después — detalle de carillas perfectas" loading="lazy" class="galeria__photo">
-                <span class="galeria__label galeria__label--after">Después</span>
-              </div>
-            </div>
-            <p class="galeria__caption">Alta estética &mdash; naturalidad extrema</p>
-          </div>
-          <div class="galeria__item reveal" role="listitem">
-            <div class="galeria__before-after">
-              <div class="galeria__img galeria__img--before">
-                <img src="img/smile-lateral-male.jpg" alt="Antes — caso de ortodoncia" loading="lazy" class="galeria__photo">
-                <span class="galeria__label">Antes</span>
-              </div>
-              <div class="galeria__img galeria__img--after">
-                <img src="img/smile-result-female.jpg" alt="Después — sonrisa alineada y natural" loading="lazy" class="galeria__photo">
-                <span class="galeria__label galeria__label--after">Después</span>
-              </div>
-            </div>
-            <p class="galeria__caption">Implantología con carga inmediata</p>
-          </div>
+        <div class="galeria__header-cta">
+          <a href="contacto.html" class="galeria__cta">
+            <span>Agendar Valoración</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contacto" class="galeria__see-all">
+            <span>Ver todos</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </a>
         </div>
+      </header>
+
+      <div class="galeria__filters" role="tablist" aria-label="Filtrar casos">
+        <button type="button" class="galeria__filter galeria__filter--active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+        <button type="button" class="galeria__filter" data-filter="sonrisa" role="tab" aria-selected="false">Diseño de Sonrisa</button>
+        <button type="button" class="galeria__filter" data-filter="rehabilitacion" role="tab" aria-selected="false">Rehabilitación</button>
+        <button type="button" class="galeria__filter" data-filter="estetica" role="tab" aria-selected="false">Alta Estética</button>
+        <button type="button" class="galeria__filter" data-filter="ortodoncia" role="tab" aria-selected="false">Ortodoncia</button>
+        <button type="button" class="galeria__filter" data-filter="implantologia" role="tab" aria-selected="false">Implantología</button>
+      </div>
+
+      <div class="galeria__controls">
+        <div class="galeria__counter" aria-hidden="true">
+          <span class="galeria__counter-current">01</span>
+          <span class="galeria__counter-sep">/</span>
+          <span class="galeria__counter-total">05</span>
+        </div>
+        <div class="galeria__progress" aria-hidden="true">
+          <span class="galeria__percent">0%</span>
+          <div class="galeria__progress-bar"><div class="galeria__progress-fill"></div></div>
+        </div>
+        <div class="galeria__arrows" role="group" aria-label="Controles de galería">
+          <button type="button" class="galeria__arrow galeria__arrow--prev" aria-label="Anterior">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" class="galeria__arrow galeria__arrow--next" aria-label="Siguiente">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="galeria__track" role="list" tabindex="0" aria-label="Carrusel de casos clínicos">
+
+        <article class="galeria__card" role="listitem" data-category="sonrisa">
+          <img class="galeria__card-img" src="img/smile-front-female.jpg" alt="Resultado — diseño de sonrisa con carillas" loading="lazy">
+          <div class="galeria__card-overlay"></div>
+          <span class="galeria__card-badge">DISEÑO DE SONRISA</span>
+          <h3 class="galeria__card-title">CARILLAS<br>DE PORCELANA</h3>
+          <div class="galeria__card-footer">
+            <span>CASO 01</span>
+            <span>2025</span>
+          </div>
+        </article>
+
+        <article class="galeria__card" role="listitem" data-category="rehabilitacion">
+          <img class="galeria__card-img" src="img/smile-veneers-lateral.jpg" alt="Resultado — rehabilitación oral con implantes" loading="lazy">
+          <div class="galeria__card-overlay"></div>
+          <span class="galeria__card-badge">REHABILITACIÓN ORAL</span>
+          <h3 class="galeria__card-title">IMPLANTES<br>+ PRÓTESIS FIJA</h3>
+          <div class="galeria__card-footer">
+            <span>CASO 02</span>
+            <span>24 MESES</span>
+          </div>
+        </article>
+
+        <article class="galeria__card" role="listitem" data-category="estetica">
+          <img class="galeria__card-img" src="img/veneers-lateral-detail.jpg" alt="Resultado — alta estética dental" loading="lazy">
+          <div class="galeria__card-overlay"></div>
+          <span class="galeria__card-badge">ALTA ESTÉTICA</span>
+          <h3 class="galeria__card-title">DISEÑO<br>DIGITAL DSD</h3>
+          <div class="galeria__card-footer">
+            <span>CASO 03</span>
+            <span>NATURAL</span>
+          </div>
+        </article>
+
+        <article class="galeria__card" role="listitem" data-category="ortodoncia">
+          <img class="galeria__card-img" src="img/smile-result-female.jpg" alt="Resultado — ortodoncia invisible" loading="lazy">
+          <div class="galeria__card-overlay"></div>
+          <span class="galeria__card-badge">ORTODONCIA INVISIBLE</span>
+          <h3 class="galeria__card-title">ALINEADORES<br>TRANSPARENTES</h3>
+          <div class="galeria__card-footer">
+            <span>CASO 04</span>
+            <span>18 MESES</span>
+          </div>
+        </article>
+
+        <article class="galeria__card" role="listitem" data-category="implantologia">
+          <img class="galeria__card-img" src="img/smile-open-female.jpg" alt="Resultado — implantología avanzada" loading="lazy">
+          <div class="galeria__card-overlay"></div>
+          <span class="galeria__card-badge">IMPLANTOLOGÍA</span>
+          <h3 class="galeria__card-title">CIRUGÍA<br>GUIADA 3D</h3>
+          <div class="galeria__card-footer">
+            <span>CASO 05</span>
+            <span>CARGA INMEDIATA</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- CTA FINAL + FORMULARIO                              -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <section class="cta-final" aria-label="Solicitar consulta">
+    <section class="cta-final cta-final--v2" aria-label="Solicitar consulta">
       <div class="container">
         <div class="cta-final__card reveal-scale">
+          <div class="cta-final__split">
 
-          <!-- Header -->
-          <h2 class="cta-final__title">¿Listo para transformar<br><em>su sonrisa?</em></h2>
-          <p class="cta-final__desc">Agende su consulta de valoración y dé el primer paso hacia la sonrisa que merece.</p>
+            <!-- LEFT: content + trust signals -->
+            <div class="cta-final__content">
+              <div class="cta-final__trust">
+                <div class="cta-final__stars" aria-label="Calificación 5 de 5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <span class="cta-final__trust-text">+500 pacientes · 4.9/5</span>
+              </div>
 
-          <!-- Form -->
-          <form id="contactFormBottom" class="cta-form" novalidate>
-            <div class="cta-form__row">
-              <div class="cta-form__field">
-                <label for="b-nombre">Nombre</label>
-                <input type="text" id="b-nombre" name="nombre" required autocomplete="given-name">
-                <p class="error-message" role="alert"></p>
-              </div>
-              <div class="cta-form__field">
-                <label for="b-apellido">Apellido</label>
-                <input type="text" id="b-apellido" name="apellido" required autocomplete="family-name">
-                <p class="error-message" role="alert"></p>
-              </div>
-            </div>
-            <div class="cta-form__row">
-              <div class="cta-form__field">
-                <label for="b-email">Correo Electrónico</label>
-                <input type="email" id="b-email" name="email" required autocomplete="email">
-                <p class="error-message" role="alert"></p>
-              </div>
-              <div class="cta-form__field">
-                <label for="b-telefono">WhatsApp / Teléfono</label>
-                <input type="tel" id="b-telefono" name="telefono" required autocomplete="tel">
-                <p class="error-message" role="alert"></p>
-              </div>
-            </div>
-            <div class="cta-form__field">
-              <label>Interés Clínico</label>
-              <div class="cta-form__chips">
-                <label class="cta-form__chip"><input type="radio" name="servicio-b" value="implantes"><span>Implantes</span></label>
-                <label class="cta-form__chip"><input type="radio" name="servicio-b" value="estetica"><span>Estética</span></label>
-                <label class="cta-form__chip"><input type="radio" name="servicio-b" value="rehab"><span>Rehabilitación</span></label>
-                <label class="cta-form__chip"><input type="radio" name="servicio-b" value="ortodoncia"><span>Ortodoncia</span></label>
-                <label class="cta-form__chip"><input type="radio" name="servicio-b" value="otro"><span>Otro</span></label>
-              </div>
-            </div>
-            <div class="cta-form__field">
-              <label for="b-mensaje">Mensaje <span class="cta-form__opt">(opcional)</span></label>
-              <textarea id="b-mensaje" name="mensaje" rows="3"></textarea>
-            </div>
-            <button type="submit" class="cta-form__submit">
-              <span>Enviar Solicitud</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </form>
+              <h2 class="cta-final__title">Transformemos<br><em>su sonrisa.</em></h2>
+              <p class="cta-final__desc">Reserve su consulta de valoración. Evaluamos su caso con tecnología 3D y le entregamos un plan personalizado.</p>
 
+              <ul class="cta-final__benefits">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Respuesta en <strong>24 horas</strong></span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Valoración digital <strong>sin compromiso</strong></span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Planificación <strong>personalizada</strong></span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Datos <strong>100% confidenciales</strong></span>
+                </li>
+              </ul>
+
+              <div class="cta-final__doctor">
+                <div class="cta-final__doctor-info">
+                  <p class="cta-final__doctor-name">Dr. Sergio Ríos</p>
+                  <p class="cta-final__doctor-role">NYU · Barcelona · +15 años</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: form card -->
+            <div class="cta-final__form-wrap">
+              <form id="contactFormBottom" class="cta-form cta-form--v2" novalidate>
+                <div class="cta-form__header">
+                  <p class="cta-form__header-title">Agenda tu consulta</p>
+                  <p class="cta-form__header-note">Completa el formulario y nos comunicamos contigo</p>
+                </div>
+
+                <div class="cta-form__row">
+                  <div class="cta-form__field">
+                    <label for="b-nombre">Nombre</label>
+                    <input type="text" id="b-nombre" name="nombre" placeholder="María" required autocomplete="given-name">
+                    <p class="error-message" role="alert"></p>
+                  </div>
+                  <div class="cta-form__field">
+                    <label for="b-apellido">Apellido</label>
+                    <input type="text" id="b-apellido" name="apellido" placeholder="González" required autocomplete="family-name">
+                    <p class="error-message" role="alert"></p>
+                  </div>
+                </div>
+
+                <div class="cta-form__field">
+                  <label for="b-email">Correo Electrónico</label>
+                  <input type="email" id="b-email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+                  <p class="error-message" role="alert"></p>
+                </div>
+
+                <div class="cta-form__field">
+                  <label for="b-telefono">WhatsApp / Teléfono</label>
+                  <input type="tel" id="b-telefono" name="telefono" placeholder="+57 300 000 0000" required autocomplete="tel">
+                  <p class="error-message" role="alert"></p>
+                </div>
+
+                <div class="cta-form__field">
+                  <label>¿En qué te podemos ayudar?</label>
+                  <div class="cta-form__chips">
+                    <label class="cta-form__chip"><input type="radio" name="servicio-b" value="implantes"><span>Implantes</span></label>
+                    <label class="cta-form__chip"><input type="radio" name="servicio-b" value="estetica"><span>Estética</span></label>
+                    <label class="cta-form__chip"><input type="radio" name="servicio-b" value="rehab"><span>Rehabilitación</span></label>
+                    <label class="cta-form__chip"><input type="radio" name="servicio-b" value="ortodoncia"><span>Ortodoncia</span></label>
+                    <label class="cta-form__chip"><input type="radio" name="servicio-b" value="otro"><span>Otro</span></label>
+                  </div>
+                </div>
+
+                <div class="cta-form__field">
+                  <label for="b-mensaje">Cuéntanos más <span class="cta-form__opt">(opcional)</span></label>
+                  <textarea id="b-mensaje" name="mensaje" rows="3" placeholder="¿Qué te gustaría transformar de tu sonrisa?"></textarea>
+                </div>
+
+                <button type="submit" class="cta-form__submit">
+                  <span>Agendar Consulta Gratuita</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+
+                <p class="cta-form__privacy">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  Sus datos están protegidos · Respuesta en 24h · Sin compromiso
+                </p>
+              </form>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -917,6 +1086,6 @@
     <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958a15.907 15.907 0 008.832 2.672C24.826 32.004 32 24.828 32 16.004 32 7.176 24.826 0 16.004 0zm9.302 22.602c-.388 1.092-1.938 1.998-3.168 2.262-.838.18-1.932.322-5.618-1.208-4.712-1.956-7.746-6.74-7.982-7.054-.226-.314-1.886-2.512-1.886-4.79 0-2.278 1.194-3.398 1.618-3.862.388-.424.912-.614 1.218-.614.148 0 .282.008.402.014.424.018.636.042.916.71.348.834 1.198 2.914 1.302 3.126.106.212.212.496.076.79-.126.302-.236.436-.448.682-.212.246-.414.436-.626.7-.196.232-.414.48-.178.904.236.416 1.052 1.736 2.26 2.812 1.554 1.384 2.864 1.814 3.27 2.014.406.2.644.168.88-.1.246-.278 1.052-1.222 1.332-1.642.272-.42.552-.348.926-.21.38.138 2.404 1.134 2.816 1.34.412.21.686.314.786.486.098.172.098.998-.29 2.09z"/></svg>
   </a>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
