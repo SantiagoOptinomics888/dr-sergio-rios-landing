@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=36">
-  <link rel="stylesheet" href="css/doctormike-layer.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=37">
+  <link rel="stylesheet" href="css/doctormike-layer.css?v=5">
 </head>
 <body>
 
@@ -123,13 +123,40 @@
           <p class="dm-hero__subtitle">
             Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
           </p>
-          <div class="dm-hero__trust">
-            <span>+5,000 procedimientos</span>
-            <span class="dm-hero__dot" aria-hidden="true"></span>
-            <span>NYU &amp; Barcelona</span>
-            <span class="dm-hero__dot" aria-hidden="true"></span>
-            <span>Medellín, Colombia</span>
+          <div class="dm-hero__trust dm-hero__trust--marquee" aria-label="Formación profesional">
+            <div class="dm-hero__trust-track">
+              <span class="dm-hero__trust-item">
+                <svg class="dm-hero__trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span><strong>UniCIEO</strong> Bogotá</span>
+              </span>
+              <span class="dm-hero__dot" aria-hidden="true"></span>
+              <span class="dm-hero__trust-item">
+                <svg class="dm-hero__trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span><strong>NYU</strong> New York</span>
+              </span>
+              <span class="dm-hero__dot" aria-hidden="true"></span>
+              <span class="dm-hero__trust-item">
+                <svg class="dm-hero__trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span><strong>Escola Francesc Pejoan</strong> Barcelona</span>
+              </span>
+            </div>
           </div>
+
+          <div class="dm-hero__social" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="dm-hero__social-link" aria-label="Síguenos en Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" class="dm-hero__social-link" aria-label="Escríbenos por WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#contacto" class="dm-hero__social-link" aria-label="Email de contacto">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email</span>
+            </a>
+          </div>
+
           <div class="dm-hero__actions">
             <a href="#implantologia" class="btn btn--primary btn--lg">
               <span>Explorar Especialidades</span>
@@ -171,11 +198,12 @@
         <div class="tray__bio reveal">
           <p class="tray__tag">Trayectoria</p>
           <h2 class="tray__name">Sergio Ríos</h2>
-          <p class="tray__role">Arquitecto de la Sonrisa</p>
-          <blockquote class="tray__quote">
-            "Mi filosofía no es simplemente restaurar dientes, es devolver la seguridad a través de la precisión quirúrgica y la armonía facial."
-          </blockquote>
-          <p class="tray__desc">Antes de ser cirujano, se formó en Barcelona como <strong>Técnico Superior en Prótesis Dentales</strong> &mdash; una ventaja que le permite entender la rehabilitación desde la estructura misma del diente. Más de 15 años de trayectoria internacional entre Nueva York, Miami y Barcelona.</p>
+          <p class="tray__role">Reinventando tu sonrisa</p>
+          <div class="tray__desc">
+            <p>Su formación inicial en Barcelona como <strong>Técnico Superior en Prótesis Dentales</strong> le brinda una ventaja única: comprende cada rehabilitación desde la base estructural del diente, logrando resultados más precisos y duraderos.</p>
+            <p>Se especializó como <strong>implantólogo oral y reconstructivo en la Universidad UniCieo de Bogotá</strong>, la única en Iberoamérica que integra formación quirúrgica y rehabilitación oral en un mismo programa, lo que le permite ofrecer tratamientos completos en un solo enfoque.</p>
+            <p>Con más de <strong>15 años de experiencia internacional</strong> y trayectoria en consultas privadas en Barcelona, Bogotá y Medellín, ofrece soluciones que combinan funcionalidad, estética y confianza, devolviendo la sonrisa y calidad de vida a sus pacientes.</p>
+          </div>
           <a href="contacto.html" class="btn btn--primary">
             <span>Agendar Valoración</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -237,10 +265,9 @@
             <div class="svc-scroll__media">
               <div class="svc-scroll__stage">
                 <img data-step="0" src="img/implantologia-avanzada.jpg" alt="Implantología avanzada — visión integral" loading="lazy" class="svc-scroll__img svc-scroll__img--active">
-                <img data-step="1" src="img/teeth-clinical.jpg" alt="Cirugía guiada 3D con planificación digital" loading="lazy" class="svc-scroll__img">
-                <img data-step="2" src="img/smile-male-front.jpg" alt="Resultado de carga inmediata" loading="lazy" class="svc-scroll__img">
-                <img data-step="3" src="img/smile-veneers-lateral.jpg" alt="Rehabilitación All-on-4" loading="lazy" class="svc-scroll__img">
-                <img data-step="4" src="img/smile-lateral-closeup.jpg" alt="Cirugía mínimamente invasiva" loading="lazy" class="svc-scroll__img">
+                <img data-step="1" src="img/cirugia-guiada-3d.png" alt="Cirugía guiada 3D con planificación digital" loading="lazy" class="svc-scroll__img">
+                <img data-step="2" src="img/carga-inmediata.jpg" alt="Resultado de carga inmediata" loading="lazy" class="svc-scroll__img">
+                <img data-step="3" src="img/all-on-4.png" alt="Rehabilitación All-on-4" loading="lazy" class="svc-scroll__img">
                 <svg class="svc-scroll__accent" viewBox="0 0 400 500" fill="none" aria-hidden="true">
                   <path d="M15 30 C 45 5, 365 -10, 385 50 C 400 180, 400 320, 380 470 C 330 495, 80 500, 25 475 C 5 400, -5 180, 15 30 Z"
                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -261,7 +288,6 @@
                   <span class="svc__pill">Carga Inmediata</span>
                   <span class="svc__pill">Cirugía Guiada 3D</span>
                   <span class="svc__pill">All-on-4</span>
-                  <span class="svc__pill">Mínima Invasión</span>
                 </div>
                 <div class="svc__actions">
                   <a href="contacto.html" class="btn btn--primary">
@@ -274,13 +300,13 @@
                   </button>
                 </div>
                 <p class="svc-scroll__hint" aria-hidden="true">
-                  <span>Desliza para descubrir nuestros 4 pilares técnicos</span>
+                  <span>Desliza para descubrir nuestros 3 pilares técnicos</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
                 </p>
               </div>
 
               <div class="svc-scroll__step" data-step="1">
-                <p class="svc-scroll__step-num">01 / 04 · Planificación digital</p>
+                <p class="svc-scroll__step-num">01 / 03 · Planificación digital</p>
                 <h4 class="svc-scroll__step-title">Cirugía Guiada 3D</h4>
                 <p class="svc-scroll__step-text">Tomografía computarizada y software especializado para planificar cada implante con precisión milimétrica. Antes del primer corte, ya conocemos el resultado final.</p>
                 <ul class="svc-scroll__step-list">
@@ -291,7 +317,7 @@
               </div>
 
               <div class="svc-scroll__step" data-step="2">
-                <p class="svc-scroll__step-num">02 / 04 · Recuperación acelerada</p>
+                <p class="svc-scroll__step-num">02 / 03 · Recuperación acelerada</p>
                 <h4 class="svc-scroll__step-title">Carga Inmediata</h4>
                 <p class="svc-scroll__step-text">Dientes fijos el mismo día de la cirugía en casos seleccionados. Sale del consultorio con su sonrisa restaurada, sin meses de espera con provisionales removibles.</p>
                 <ul class="svc-scroll__step-list">
@@ -302,24 +328,13 @@
               </div>
 
               <div class="svc-scroll__step" data-step="3">
-                <p class="svc-scroll__step-num">03 / 04 · Solución integral</p>
+                <p class="svc-scroll__step-num">03 / 03 · Solución integral</p>
                 <h4 class="svc-scroll__step-title">All-on-4</h4>
                 <p class="svc-scroll__step-text">Rehabilitación completa de toda la arcada con solo cuatro implantes estratégicamente colocados. Solución definitiva y predecible para pacientes con pérdida total dental.</p>
                 <ul class="svc-scroll__step-list">
                   <li>Implantes angulados de alta estabilidad</li>
                   <li>Sin necesidad de injertos óseos</li>
                   <li>Prótesis fija sobre implantes</li>
-                </ul>
-              </div>
-
-              <div class="svc-scroll__step" data-step="4">
-                <p class="svc-scroll__step-num">04 / 04 · Confort máximo</p>
-                <h4 class="svc-scroll__step-title">Mínima Invasión</h4>
-                <p class="svc-scroll__step-text">Técnicas flapless que reducen incisiones, dolor postoperatorio y tiempos de recuperación. Su rutina habitual de vuelta en días, no semanas.</p>
-                <ul class="svc-scroll__step-list">
-                  <li>Sin colgajos ni suturas extensas</li>
-                  <li>Postoperatorio controlado</li>
-                  <li>Reintegro laboral en 48–72h</li>
                 </ul>
               </div>
 
@@ -418,7 +433,7 @@
           </div>
           <div class="svc__visual reveal-left">
             <div class="svc__img-wrapper">
-              <img src="img/smile-veneers-lateral.jpg" alt="Resultado de diseño de sonrisa con carillas de porcelana" loading="lazy" class="svc__img">
+              <img src="img/diseno-sonrisa.png" alt="Diseño de sonrisa y alta estética dental" loading="lazy" class="svc__img">
             </div>
             <div class="svc__img-accent svc__img-accent--left" aria-hidden="true">
               <img src="img/face-brunette-1.jpg" alt="" loading="lazy" class="svc__img svc__img--small" aria-hidden="true">
