@@ -90,6 +90,252 @@
     onScroll();
   }
 
+  /* ─── Sonrisa Showcase — Lagom-style carousel ───────── */
+  function initSonrisaShowcase() {
+    var showcases = document.querySelectorAll('.sonrisa-showcase');
+    if (!showcases.length) return;
+    showcases.forEach(initOneShowcase);
+  }
+
+  function initOneShowcase(showcase) {
+    var slides = showcase.querySelectorAll('.sonrisa-showcase__slide');
+    var bars = showcase.querySelectorAll('.sonrisa-showcase__bar');
+    if (!slides.length || !bars.length) return;
+
+    var content = showcase.querySelector('.sonrisa-showcase__content');
+    var frame = showcase.querySelector('.sonrisa-showcase__frame');
+    var els = {
+      priceKicker: showcase.querySelector('[data-ss-price-kicker]'),
+      price: showcase.querySelector('[data-ss-price]'),
+      priceUnit: showcase.querySelector('[data-ss-price-unit]'),
+      duration: showcase.querySelector('[data-ss-duration]'),
+      counter: showcase.querySelector('[data-ss-counter]'),
+      title: showcase.querySelector('[data-ss-title]'),
+      subtitle: showcase.querySelector('[data-ss-subtitle]'),
+      location: showcase.querySelector('[data-ss-location]'),
+      badgeNum: showcase.querySelector('[data-ss-badge-num]'),
+      badgeLabel: showcase.querySelector('[data-ss-badge-label]'),
+      img: showcase.querySelector('[data-ss-img]')
+    };
+
+    var index = 0;
+    var timer = null;
+    var AUTO_MS = 6000;
+
+    function parsePrice(raw) {
+      // Splits "desde $850" → kicker="desde" + price="$850"
+      if (!raw) return { kicker: '', price: '' };
+      var m = raw.match(/^(\S+)\s+(.+)$/);
+      if (m) return { kicker: m[1], price: m[2] };
+      return { kicker: '', price: raw };
+    }
+
+    var isFirstRender = true;
+    var transitioning = false;
+
+    function applyData(s) {
+      var pp = parsePrice(s.getAttribute('data-price'));
+      if (els.priceKicker) els.priceKicker.textContent = pp.kicker;
+      if (els.price) els.price.textContent = pp.price;
+      if (els.priceUnit) els.priceUnit.textContent = s.getAttribute('data-price-unit') || '';
+      if (els.duration) els.duration.textContent = s.getAttribute('data-duration') || '';
+      if (els.counter) els.counter.textContent = (s.getAttribute('data-counter') || '').split('/')[0];
+      if (els.title) els.title.textContent = s.getAttribute('data-title') || '';
+      if (els.subtitle) els.subtitle.textContent = s.getAttribute('data-subtitle') || '';
+      if (els.location) els.location.textContent = s.getAttribute('data-location') || '';
+      if (els.badgeNum) els.badgeNum.textContent = s.getAttribute('data-badge-num') || '';
+      if (els.badgeLabel) els.badgeLabel.textContent = s.getAttribute('data-badge-label') || '';
+      if (els.img) {
+        var imgSrc = s.getAttribute('data-img');
+        if (imgSrc) {
+          els.img.src = imgSrc;
+          els.img.alt = s.getAttribute('data-img-alt') || '';
+        }
+      }
+    }
+
+    function syncBars(i) {
+      bars.forEach(function (b) {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      var activeBar = bars[i];
+      if (activeBar) {
+        void activeBar.offsetWidth;
+        activeBar.classList.add('is-active');
+        activeBar.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function pulseBadge() {
+      var badge = showcase.querySelector('.sonrisa-showcase__badge');
+      if (!badge || !showcase.classList.contains('is-in-view')) return;
+      badge.classList.remove('is-pulsing');
+      void badge.offsetWidth;
+      badge.classList.add('is-pulsing');
+    }
+
+    function restartKenBurns() {
+      if (!els.img) return;
+      els.img.style.animation = 'none';
+      void els.img.offsetWidth;
+      els.img.style.animation = '';
+    }
+
+    function render(i) {
+      var s = slides[i];
+      if (!s) return;
+      slides.forEach(function (sl, j) { sl.classList.toggle('is-active', j === i); });
+
+      // FIRST render: just set data, no transition (let is-in-view stagger play)
+      if (isFirstRender) {
+        isFirstRender = false;
+        applyData(s);
+        syncBars(i);
+        return;
+      }
+
+      if (transitioning) return;
+      transitioning = true;
+
+      // Phase 1: SLIDE OUT (current content + image leave to the left)
+      if (content) content.classList.add('ss-out');
+      if (frame) frame.classList.add('ss-out');
+
+      setTimeout(function () {
+        // Phase 2: SWAP DATA (during the brief instant content is invisible)
+        applyData(s);
+        syncBars(i);
+        pulseBadge();
+
+        // Phase 3: SLIDE IN (new content + image enter from the right)
+        if (content) {
+          content.classList.remove('ss-out');
+          content.classList.add('ss-in');
+        }
+        if (frame) {
+          frame.classList.remove('ss-out');
+          frame.classList.add('ss-in');
+        }
+
+        // Phase 4: cleanup after slide-in finishes → Ken Burns kicks back
+        setTimeout(function () {
+          if (content) content.classList.remove('ss-in');
+          if (frame) frame.classList.remove('ss-in');
+          restartKenBurns();
+          transitioning = false;
+        }, 720); // match ssSlideInRight + buffer
+      }, 380); // match ssSlideOutLeft duration
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      render(index);
+      restart();
+    }
+
+    function next() { goTo(index + 1); }
+
+    function restart() {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(next, AUTO_MS);
+    }
+
+    function pause() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      var barsContainer = showcase.querySelector('.sonrisa-showcase__bars');
+      if (barsContainer) barsContainer.classList.add('is-paused');
+    }
+
+    function resume() {
+      var barsContainer = showcase.querySelector('.sonrisa-showcase__bars');
+      if (barsContainer) barsContainer.classList.remove('is-paused');
+      restart();
+    }
+
+    // Click navigation
+    bars.forEach(function (b) {
+      b.addEventListener('click', function () {
+        goTo(parseInt(b.getAttribute('data-ss-bar'), 10));
+      });
+    });
+
+    // Pause on hover, resume on leave
+    showcase.addEventListener('mouseenter', pause);
+    showcase.addEventListener('mouseleave', resume);
+
+    // Start only when visible + toggle is-in-view for entrance anims
+    var visObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          showcase.classList.add('is-in-view');
+          render(0);
+          restart();
+        } else {
+          pause();
+        }
+      });
+    }, { threshold: 0.18 });
+    visObs.observe(showcase);
+
+    // ── Scroll-linked parallax on image ─────────────
+    if (!prefersReducedMotion) {
+      var imgScroll = showcase.querySelector('.sonrisa-showcase__img-scroll');
+      var frame = showcase.querySelector('.sonrisa-showcase__frame');
+      if (imgScroll && frame) {
+        var ticking = false;
+        function updateParallax() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            var rect = frame.getBoundingClientRect();
+            var vh = window.innerHeight;
+            if (rect.bottom < -100 || rect.top > vh + 100) { ticking = false; return; }
+            var center = rect.top + rect.height / 2;
+            var progress = (center - vh / 2) / (vh / 2); // -1 to 1
+            progress = Math.max(-1, Math.min(1, progress));
+            var offset = -progress * 28; // px
+            imgScroll.style.setProperty('--ss-parallax', offset.toFixed(2) + 'px');
+            ticking = false;
+          });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        window.addEventListener('resize', updateParallax);
+        updateParallax();
+      }
+    }
+
+  }
+
+  /* ─── Turismo Médico — stats count-up when visible ──── */
+  function initTurismoStats() {
+    var nums = document.querySelectorAll('.turismo__stat-num');
+    if (!nums.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (!target || isNaN(target)) { observer.unobserve(el); return; }
+        var duration = 1400;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min(1, (ts - start) / duration);
+          var eased = 1 - Math.pow(1 - progress, 4); // ease-out-quart
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    nums.forEach(function (n) { observer.observe(n); });
+  }
+
   /* ─── Service word-by-word reveal (tpl A/B/C/D titles) ─ */
   function initServiceWordReveal() {
     var titles = document.querySelectorAll('.svc--tplA .svc__title, .svc--tplB .svc__title, .svc--tplC .svc__title, .svc--tplD .svc__title');
@@ -150,7 +396,8 @@
     blocks.forEach(function (block) {
       var steps = block.querySelectorAll('.svc-scroll__step');
       var images = block.querySelectorAll('.svc-scroll__img');
-      if (!steps.length || !images.length) return;
+      var heroGalleries = block.querySelectorAll('.svc-scroll__hero-gallery');
+      if (!steps.length) return;
 
       function setActive(stepId) {
         steps.forEach(function (s) {
@@ -158,6 +405,9 @@
         });
         images.forEach(function (img) {
           img.classList.toggle('svc-scroll__img--active', img.getAttribute('data-step') === stepId);
+        });
+        heroGalleries.forEach(function (g) {
+          g.classList.toggle('svc-scroll__hero-gallery--active', g.getAttribute('data-step') === stepId);
         });
       }
 
@@ -1038,6 +1288,8 @@
     initServiceProgress();
     initServiceSectionEffects();
     initServiceWordReveal();
+    initTurismoStats();
+    initSonrisaShowcase();
     initServiceTemplates();
     initServiceParallax();
     initScrollyFeatures();
