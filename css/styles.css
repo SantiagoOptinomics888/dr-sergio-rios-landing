@@ -7686,3 +7686,133 @@ section.galeria.galeria--unvrs {
   .footer__map iframe { min-height: 200px; }
   .footer__bottom-links { gap: 0.4rem 1rem; }
 }
+
+/* ═══════════════════════════════════════════════════════════ */
+/* CTA FINAL — high-contrast polish (form vs section bg)       */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Section bg: gradient from deeper mint to soft white so the card pops.
+   Plus a subtle decorative dot grid for texture. */
+.cta-final--v2 {
+  background:
+    radial-gradient(1100px 480px at 80% -10%, rgba(231, 148, 64, 0.08), transparent 60%),
+    radial-gradient(900px 420px at 0% 110%, rgba(100, 169, 158, 0.18), transparent 60%),
+    linear-gradient(180deg, #d3e8e4 0%, #eaf3f1 60%, var(--bg, #e0f0ee) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-final--v2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(42, 61, 58, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+  opacity: 0.4;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+
+/* Card lift — much stronger shadow so it floats off the section bg */
+.cta-final--v2 .cta-final__card {
+  box-shadow:
+    0 40px 90px -20px rgba(10, 30, 35, 0.45),
+    0 16px 40px -12px rgba(10, 30, 35, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative orange-glow ribbon on the card (top edge) */
+.cta-final--v2 .cta-final__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--cta, #e79440) 50%, transparent 100%);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Form-wrap: warm off-white + clear separator from the dark half */
+.cta-final--v2 .cta-final__form-wrap {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f6faf9 100%);
+  position: relative;
+  border-left: 1px solid rgba(100, 169, 158, 0.18);
+}
+
+@media (max-width: 900px) {
+  .cta-final--v2 .cta-final__form-wrap {
+    border-left: none;
+    border-top: 1px solid rgba(100, 169, 158, 0.18);
+  }
+}
+
+/* Form header: stronger title weight, accent kicker bar */
+.cta-final--v2 .cta-form__header {
+  position: relative;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(100, 169, 158, 0.14);
+}
+
+.cta-final--v2 .cta-form__header::before {
+  content: 'Reserve su consulta';
+  display: block;
+  font-family: var(--vo-mono, ui-monospace, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cta, #e79440);
+  margin-bottom: 0.45rem;
+}
+
+.cta-final--v2 .cta-form__header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Inputs: stronger separation from the white card bg */
+.cta-final--v2 .cta-form--v2 .cta-form__field input,
+.cta-final--v2 .cta-form--v2 .cta-form__field textarea {
+  background: #eef4f2 !important;
+  border: 1.5px solid rgba(100, 169, 158, 0.30) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.cta-final--v2 .cta-form--v2 .cta-form__field input:hover,
+.cta-final--v2 .cta-form--v2 .cta-form__field textarea:hover {
+  border-color: rgba(100, 169, 158, 0.50) !important;
+}
+
+.cta-final--v2 .cta-form--v2 .cta-form__field input:focus,
+.cta-final--v2 .cta-form--v2 .cta-form__field textarea:focus {
+  background: #ffffff !important;
+  border-color: var(--cta, #e79440) !important;
+  box-shadow: 0 0 0 4px rgba(231, 148, 64, 0.15) !important;
+}
+
+/* Field labels: tighter and a touch darker */
+.cta-final--v2 .cta-form--v2 .cta-form__field label {
+  color: var(--title, #2a3d3a) !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Chips: warmer base for clearer affordance */
+.cta-final--v2 .cta-form--v2 .cta-form__chip span {
+  background: #eef4f2 !important;
+  border-color: rgba(100, 169, 158, 0.30) !important;
+}
+
+/* Mobile: section padding tighter so the card uses screen real estate */
+@media (max-width: 600px) {
+  .cta-final--v2 { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .cta-final--v2 .cta-final__card { border-radius: 18px; }
+}
