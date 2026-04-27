@@ -7237,3 +7237,66 @@ section.galeria.galeria--unvrs {
   background: var(--cta, #e79440);
   opacity: 0.7;
 }
+
+/* ═══════════════════════════════════════════════════════════ */
+/* CLINIC ADDRESS — used in CTA, footer, contact card          */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* <address> resets — kill the browser's default italic */
+.cta-final__address,
+.footer__location,
+.ct__card--address address {
+  font-style: normal;
+}
+
+/* CTA section address line under doctor info */
+.cta-final__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cta-final__address svg {
+  color: var(--cta, #e79440);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.cta-final__address strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Footer multi-line address keeps tight rhythm */
+.footer__location {
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.footer__location strong { font-weight: 600; }
+
+/* Contact page — Address card matches the bento card system */
+.ct__card--address address {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--secondary, #555);
+  margin: 0.35rem 0 0.65rem;
+}
+
+.ct__card--address address strong {
+  color: var(--title, #0A0A0A);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .cta-final__address { font-size: 0.8rem; }
+  .ct__card--address address { font-size: 0.9rem; }
+}
