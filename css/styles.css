@@ -263,6 +263,24 @@ ul { list-style: none; }
   border-color: var(--accent);
 }
 
+.btn--secondary {
+  background: rgba(231, 148, 64, 0.10);
+  color: var(--cta);
+  border: 1.5px solid var(--cta);
+}
+
+.btn--secondary:hover {
+  background: var(--cta);
+  color: #fff;
+  border-color: var(--cta);
+  box-shadow: var(--shadow-cta);
+  transform: translateY(-2px);
+}
+
+.btn--secondary:active {
+  transform: translateY(0);
+}
+
 .btn--light {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
@@ -6729,6 +6747,62 @@ section.galeria.galeria--unvrs {
   opacity: 1;
 }
 
+/* ── Long-form description paragraph ──────────────── */
+.sonrisa-showcase__description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--secondary, #555);
+  margin: 0.25rem 0 1.25rem;
+  max-width: 540px;
+}
+
+.sonrisa-showcase__description strong {
+  color: var(--vo-dark, #051A24);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .sonrisa-showcase__description { font-size: 0.9rem; }
+}
+
+/* ── Rotating image banner (auto-crossfade) ────────── */
+.sonrisa-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sonrisa-banner__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.7s ease, transform 4s ease-out;
+  will-change: opacity, transform;
+  /* Override Ken Burns from generic .sonrisa-showcase__frame img rule */
+  animation: none !important;
+}
+
+.sonrisa-banner__img.is-active {
+  opacity: 1;
+  transform: scale(1.0);
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sonrisa-banner__img {
+    transition: opacity 0.4s ease;
+    transform: none;
+  }
+  .sonrisa-banner__img.is-active { transform: none; }
+}
+
 /* ═══════════════════════════════════════════════════════════ */
 /* SCROLLYTELLING — Dark variant for Ortodoncia (tplD)         */
 /* ═══════════════════════════════════════════════════════════ */
@@ -6939,6 +7013,100 @@ section.galeria.galeria--unvrs {
 .svc-scroll__hero-gallery--active .svc-scroll__hero-tile--2 { animation-delay: 0.25s; }
 .svc-scroll__hero-gallery--active .svc-scroll__hero-tile--3 { animation-delay: 0.4s; }
 
+/* Single big banner variant — overrides the 2x2 grid with one full tile */
+.svc-scroll__hero-gallery--single {
+  display: block !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.svc-scroll__hero-tile--full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.svc-scroll__hero-tile--full img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+.svc-scroll__hero-gallery--active .svc-scroll__hero-tile--full {
+  animation-delay: 0.1s;
+}
+
+/* Give the orthodontia stage extra height so the banner reads big — desktop only.
+   On smaller screens the existing .svc-scroll__media responsive rules (60vh/55vh)
+   apply, since the stage stacks above the text. */
+@media (min-width: 1025px) {
+  .svc--tplD .svc-scroll__media {
+    height: 88vh;
+    max-height: 900px;
+  }
+}
+
+/* Bold lead-ins inside scrollytelling step lists (e.g. "Escaneo 3D:") */
+.svc-scroll__step-list li strong {
+  color: #0A0A0A;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.svc-scroll--dark .svc-scroll__step-list li strong {
+  color: #ffffff;
+}
+
+/* Prose variant: longer bullet items with bold lead-ins read as sentences,
+   not all-caps monospace. Apply when items are full sentences. */
+.svc-scroll__step-list--prose {
+  gap: 0.85rem;
+}
+
+.svc-scroll__step-list--prose li {
+  font-family: var(--font-body, Inter, system-ui, sans-serif);
+  font-size: 0.92rem;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.6;
+  padding-left: 1.4rem;
+}
+
+.svc-scroll__step-list--prose li::before {
+  top: 0.65em;
+  width: 0.65rem;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.svc-scroll--dark .svc-scroll__step-list--prose li {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 768px) {
+  .svc-scroll__step-list--prose li { font-size: 0.9rem; line-height: 1.55; }
+}
+
+/* Small informational disclaimer under a step */
+.svc-scroll__step-disclaimer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--vo-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .svc-scroll__hero-gallery {
@@ -6953,4 +7121,119 @@ section.galeria.galeria--unvrs {
 @media (min-width: 1025px) {
   .svc--tplD .svc-scroll__steps { order: 1; }
   .svc--tplD .svc-scroll__media { order: 2; }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* RESPONSIVE UX POLISH (final layer — overrides above)        */
+/* Consolidated mobile/tablet improvements                     */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* ── Sonrisa banner: better proportions across breakpoints ── */
+@media (max-width: 900px) {
+  .sonrisa-showcase__visual {
+    aspect-ratio: 4 / 3;
+    max-height: 460px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sonrisa-showcase__visual {
+    aspect-ratio: 5 / 4;
+    max-height: 360px;
+  }
+  /* Floating badge sits cleaner inside the frame on small screens
+     so it doesn't clip when the visual is order: -1 (above content) */
+  .sonrisa-showcase__badge {
+    top: auto !important;
+    bottom: 0.85rem;
+    right: 0.85rem;
+    width: clamp(110px, 32vw, 138px);
+    padding: 0.7rem 0.85rem;
+  }
+  .sonrisa-showcase__badge-num { font-size: 1.4rem; }
+  .sonrisa-showcase__badge-label { font-size: 0.65rem; max-width: none; }
+}
+
+/* ── Sonrisa-banner image: limit Ken-Burns scale on small screens
+   to prevent overflow + reduce motion cost ───────────────── */
+@media (max-width: 600px) {
+  .sonrisa-banner__img {
+    transform: scale(1.02);
+    transition: opacity 0.55s ease;
+  }
+  .sonrisa-banner__img.is-active { transform: scale(1); }
+}
+
+/* ── Showcase description: tighter rhythm on mobile ──────── */
+@media (max-width: 600px) {
+  .sonrisa-showcase__description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0.25rem 0 1rem;
+  }
+  .sonrisa-showcase__subtitle { font-size: 0.92rem; margin-bottom: 0.85rem; }
+  .sonrisa-showcase__location { font-size: 0.78rem; padding: 0.45rem 0.75rem; }
+}
+
+/* ── Showcase action buttons: full-width on mobile, comfy taps ── */
+@media (max-width: 600px) {
+  .sonrisa-showcase__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+  .sonrisa-showcase__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+}
+
+/* ── Service section number: don't dwarf small viewports ── */
+@media (max-width: 480px) {
+  .svc__number { font-size: 2.75rem; }
+  .svc__title { font-size: 1.55rem !important; line-height: 1.1; }
+}
+
+/* ── Scrollytelling step text: a touch more breathable on mobile ── */
+@media (max-width: 768px) {
+  .svc-scroll__step-text { font-size: 0.95rem; line-height: 1.65; }
+  .svc-scroll__step-num { font-size: 0.7rem; }
+}
+
+/* ── Pinned media on mobile: make sure it never grows past viewport ── */
+@media (max-width: 1024px) {
+  .svc-scroll__media {
+    height: clamp(260px, 56vh, 480px);
+  }
+}
+
+/* ── Hero gallery (single banner) on mobile: prevent black gap above ── */
+@media (max-width: 1024px) {
+  .svc-scroll__hero-tile--full {
+    border-radius: 22px;
+  }
+}
+
+/* ── Touch target safety net: tap-friendly buttons & links sitewide ── */
+@media (max-width: 768px) {
+  .btn, .btn-corner, .nav__link, .ct__chip span {
+    min-height: 44px;
+  }
+  /* Tap-highlight cleanup on iOS */
+  a, button { -webkit-tap-highlight-color: rgba(231, 148, 64, 0.15); }
+}
+
+/* ── Disable parallax on mobile (perf + jitter on iOS) ─────── */
+@media (max-width: 900px) {
+  .sonrisa-showcase__img-scroll {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── Dark scrollytelling: keep prose lists legible ─────────── */
+.svc-scroll--dark .svc-scroll__step-list--prose li::before {
+  background: var(--cta, #e79440);
+  opacity: 0.7;
 }

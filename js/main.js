@@ -95,6 +95,75 @@
     var showcases = document.querySelectorAll('.sonrisa-showcase');
     if (!showcases.length) return;
     showcases.forEach(initOneShowcase);
+    showcases.forEach(initShowcaseVisibility);
+  }
+
+  // Toggle is-in-view so existing entrance animations (badge, frame, content)
+  // keep working even when the showcase is single-slide / banner-only mode.
+  function initShowcaseVisibility(showcase) {
+    if (showcase.querySelectorAll('.sonrisa-showcase__slide').length) return;
+    var visObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          showcase.classList.add('is-in-view');
+          visObs.unobserve(showcase);
+        }
+      });
+    }, { threshold: 0.18 });
+    visObs.observe(showcase);
+  }
+
+  /* ─── Sonrisa Banner — auto-rotating image crossfade ── */
+  function initSonrisaBanner() {
+    var banners = document.querySelectorAll('.sonrisa-banner');
+    if (!banners.length) return;
+
+    banners.forEach(function (banner) {
+      var imgs = banner.querySelectorAll('.sonrisa-banner__img');
+      if (imgs.length < 2) return;
+
+      var interval = parseInt(banner.getAttribute('data-banner-interval'), 10);
+      if (!interval || isNaN(interval)) interval = 1800;
+
+      var current = 0;
+      var timer = null;
+      var visible = false;
+
+      function show(i) {
+        imgs.forEach(function (img, j) {
+          img.classList.toggle('is-active', j === i);
+        });
+      }
+
+      function tick() {
+        current = (current + 1) % imgs.length;
+        show(current);
+      }
+
+      function play() {
+        if (timer || prefersReducedMotion) return;
+        timer = setInterval(tick, interval);
+      }
+
+      function pause() {
+        if (!timer) return;
+        clearInterval(timer);
+        timer = null;
+      }
+
+      var visObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          visible = e.isIntersecting;
+          if (visible) play(); else pause();
+        });
+      }, { threshold: 0.15 });
+      visObs.observe(banner);
+
+      banner.addEventListener('mouseenter', pause);
+      banner.addEventListener('mouseleave', function () {
+        if (visible) play();
+      });
+    });
   }
 
   function initOneShowcase(showcase) {
@@ -1290,6 +1359,7 @@
     initServiceWordReveal();
     initTurismoStats();
     initSonrisaShowcase();
+    initSonrisaBanner();
     initServiceTemplates();
     initServiceParallax();
     initScrollyFeatures();
