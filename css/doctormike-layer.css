@@ -693,35 +693,16 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 1.25rem;
   position: relative;
-  padding: 0.85rem 1.1rem;
-  background: linear-gradient(90deg,
-    rgba(100, 169, 158, 0.06) 0%,
-    rgba(231, 148, 64, 0.05) 50%,
-    rgba(100, 169, 158, 0.06) 100%);
-  background-size: 220% 100%;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
-  overflow: hidden;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
   width: fit-content;
   max-width: 100%;
-  animation: dmTrustShimmer 7s ease-in-out infinite;
 }
 
-.dm-hero__trust--marquee::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(231, 148, 64, 0.18) 50%,
-    transparent 100%);
-  background-size: 30% 100%;
-  background-repeat: no-repeat;
-  background-position: -30% 0;
-  animation: dmTrustSweep 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  pointer-events: none;
-  border-radius: inherit;
-}
+.dm-hero__trust--marquee::before { content: none; }
 
 .dm-hero__trust-track {
   display: flex;
@@ -819,7 +800,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .dm-hero__trust--marquee { padding: 0.65rem 0.85rem; }
+  .dm-hero__trust--marquee { padding: 0; }
   .dm-hero__trust-track { font-size: 0.7rem; gap: 0.55rem; justify-content: center; }
   .dm-hero__social { justify-content: center; }
   .dm-hero__social-link { padding: 0.4rem 0.75rem; font-size: 0.7rem; }
