@@ -9,40 +9,29 @@ body {
   background: #f8f8f8;
 }
 
-/* ─── Nav — Dark on hero, light on scroll ────────────────── */
+/* ─── Nav — Always solid white ───────────────────────────── */
 .nav {
-  background: transparent;
+  background: #ffffff;
   border: none;
-  box-shadow: none;
+  border-bottom: 1px solid rgba(100, 169, 158, 0.16);
+  box-shadow: 0 2px 12px rgba(42, 61, 58, 0.05);
   border-radius: 0;
   top: 0;
   left: 0;
   right: 0;
 }
 
-.nav__logo-name { color: #fff; }
-.nav__logo-tag { color: rgba(255,255,255,0.5); }
-.nav__links a { color: rgba(255,255,255,0.7); }
-.nav__links a:hover { color: #fff; }
+.nav__logo-name { color: var(--title); }
+.nav__logo-tag  { color: var(--secondary); }
+.nav__links a   { color: var(--secondary); }
+.nav__links a:hover { color: var(--title); }
+.nav__hamburger span { background: var(--title); }
 
 .nav--scrolled {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-  border-radius: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  background: #ffffff;
+  border-bottom-color: rgba(100, 169, 158, 0.24);
+  box-shadow: 0 4px 18px rgba(42, 61, 58, 0.08);
 }
-
-.nav--scrolled .nav__logo-name { color: var(--title); }
-.nav--scrolled .nav__logo-tag { color: var(--secondary); }
-.nav--scrolled .nav__links a { color: var(--secondary); }
-.nav--scrolled .nav__links a:hover { color: var(--title); }
-.nav--scrolled .nav__hamburger span { background: var(--title); }
-
-.nav__hamburger span { background: #fff; }
 
 .nav__progress { background: var(--cta); }
 
