@@ -362,8 +362,8 @@ ul { list-style: none; }
 }
 
 .nav__logo--riu .nav__logo-mark {
-  height: 54px;
-  width: 54px;
+  height: 72px;
+  width: 72px;
   display: block;
   object-fit: contain;
   transition: transform 0.3s var(--ease);
@@ -399,7 +399,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  .nav__logo--riu .nav__logo-mark { height: 44px; width: 44px; }
+  .nav__logo--riu .nav__logo-mark { height: 56px; width: 56px; }
   .nav__logo-by { padding-left: 0.5rem; }
   .nav__logo-by-kicker { font-size: 0.55rem; }
   .nav__logo-by-name { font-size: 0.85rem; }
@@ -7441,14 +7441,14 @@ section.galeria.galeria--unvrs {
 
 /* Logo sits inside a soft white chip so its native brand colors render true */
 .footer__brand-logo img {
-  height: 68px;
-  width: 68px;
+  height: 96px;
+  width: 96px;
   display: block;
   object-fit: contain;
   background: #ffffff;
-  padding: 6px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
   transition: transform 0.3s var(--ease), box-shadow 0.3s ease;
 }
 
