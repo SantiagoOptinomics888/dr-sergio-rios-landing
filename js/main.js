@@ -43,11 +43,54 @@
     window.__lenis = lenis; // expose for debugging
   }
 
+  /* ─── FX: char-by-char reveal split ─────────────────────
+     Splits text inside .fx-char-reveal into per-char spans wrapped in
+     a per-line .fx-char-line (so each char can translateY behind a
+     line-clip mask). Re-running is safe — already-split nodes skip.   */
+  function initCharReveal() {
+    var els = document.querySelectorAll('.fx-char-reveal');
+    if (!els.length) return;
+
+    els.forEach(function (root) {
+      if (root.dataset.charsSplit === 'done') return;
+      // Walk text nodes only — preserves <em>, <br>, <span> structure
+      var html = '';
+      var i = 0;
+      // Treat HTML-level <br> as a line separator
+      var raw = root.innerHTML;
+      // Wrap each "line" (separated by <br>) in its own clip
+      var lines = raw.split(/<br\s*\/?>/i);
+      lines.forEach(function (line, lineIdx) {
+        if (lineIdx > 0) html += '<br>';
+        html += '<span class="fx-char-line">';
+        // Tokenize: parse tags as-is, split text into chars
+        var parts = line.split(/(<[^>]+>)/g);
+        parts.forEach(function (part) {
+          if (!part) return;
+          if (part.charAt(0) === '<') { html += part; return; }
+          // Decode HTML entities in this segment
+          for (var k = 0; k < part.length; k++) {
+            var ch = part.charAt(k);
+            if (ch === ' ') {
+              html += '<span class="fx-char-space" style="--i:' + i + '"></span>';
+            } else {
+              html += '<span class="fx-char" style="--i:' + i + '">' + ch + '</span>';
+            }
+            i++;
+          }
+        });
+        html += '</span>';
+      });
+      root.innerHTML = html;
+      root.dataset.charsSplit = 'done';
+    });
+  }
+
   /* ─── FX: generic in-view observer ─────────────────────
      Adds .is-in-view to any .fx-* element when it scrolls into view.
-     Used by .fx-scale-out, .fx-tape, .fx-line-draw, etc.            */
+     Used by .fx-scale-out, .fx-tape, .fx-line-draw, .fx-char-reveal.  */
   function initFxInView() {
-    var els = document.querySelectorAll('.fx-scale-out, .fx-tape, .fx-line-draw');
+    var els = document.querySelectorAll('.fx-scale-out, .fx-tape, .fx-line-draw, .fx-char-reveal');
     if (!els.length) return;
     if (prefersReducedMotion) {
       els.forEach(function (el) { el.classList.add('is-in-view'); });
@@ -1410,6 +1453,7 @@
   /* ─── Initialize ────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initLenis();
+    initCharReveal();
     initFxInView();
     initScrollReveal();
     initServiceProgress();

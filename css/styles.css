@@ -8081,3 +8081,50 @@ section.galeria.galeria--unvrs {
   background: var(--section-bg);
   color: var(--section-fg);
 }
+
+/* ═══════════════════════════════════════════════════════════ */
+/* FX: char-by-char reveal (Danik-style cinematic text)         */
+/* JS splits text into <span class="fx-char"> elements; each    */
+/* char animates from translateY(110%) → 0 with stagger delay.  */
+/* The clip-path on the parent is what gives the "mask" feel.   */
+/* ═══════════════════════════════════════════════════════════ */
+.fx-char-reveal {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fx-char-reveal .fx-char-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.1;
+}
+
+.fx-char-reveal .fx-char {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Stagger via CSS custom property — JS sets --i on each char */
+.fx-char-reveal .fx-char {
+  transition-delay: calc(var(--i, 0) * 28ms);
+}
+
+.fx-char-reveal.is-in-view .fx-char {
+  transform: translateY(0);
+}
+
+/* Preserve whitespace between words */
+.fx-char-reveal .fx-char-space {
+  display: inline-block;
+  width: 0.28em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-char-reveal .fx-char {
+    transform: none !important;
+    transition: none !important;
+  }
+}
