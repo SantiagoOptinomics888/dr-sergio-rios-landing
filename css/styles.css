@@ -362,9 +362,10 @@ ul { list-style: none; }
 }
 
 .nav__logo--riu .nav__logo-mark {
-  height: 42px;
-  width: auto;
+  height: 54px;
+  width: 54px;
   display: block;
+  object-fit: contain;
   transition: transform 0.3s var(--ease);
 }
 
@@ -398,7 +399,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  .nav__logo--riu .nav__logo-mark { height: 36px; }
+  .nav__logo--riu .nav__logo-mark { height: 44px; width: 44px; }
   .nav__logo-by { padding-left: 0.5rem; }
   .nav__logo-by-kicker { font-size: 0.55rem; }
   .nav__logo-by-name { font-size: 0.85rem; }
@@ -7435,23 +7436,25 @@ section.galeria.galeria--unvrs {
   align-items: center;
   gap: 0.85rem;
   text-decoration: none;
-  padding: 0.4rem 0.6rem;
-  margin: 0 0 0.5rem -0.6rem;
-  border-radius: 12px;
-  transition: background 0.25s ease;
+  margin: 0 0 0.5rem;
 }
 
-.footer__brand-logo:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
+/* Logo sits inside a soft white chip so its native brand colors render true */
 .footer__brand-logo img {
-  height: 50px;
-  width: auto;
+  height: 68px;
+  width: 68px;
   display: block;
-  /* Invert the gray to read against dark teal */
-  filter: brightness(0) invert(1);
-  opacity: 0.92;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s ease;
+}
+
+.footer__brand-logo:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
 .footer__brand-by {
