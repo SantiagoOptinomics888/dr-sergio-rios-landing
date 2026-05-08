@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=45">
+  <link rel="stylesheet" href="css/styles.css?v=46">
   <link rel="stylesheet" href="css/doctormike-layer.css?v=6">
 </head>
 <body>
@@ -26,9 +26,12 @@
     <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
-        <a href="#hero" class="nav__logo" aria-label="Dr. Sergio Ríos — Inicio">
-          <span class="nav__logo-name">Dr. Sergio Ríos</span>
-          <span class="nav__logo-tag">Odontología de Alta Complejidad</span>
+        <a href="#hero" class="nav__logo nav__logo--riu" aria-label="Riu by Dr. Sergio Ríos — Inicio">
+          <img class="nav__logo-mark" src="img/riu-logo.svg" alt="Riu" width="78" height="42">
+          <span class="nav__logo-by">
+            <span class="nav__logo-by-kicker">by</span>
+            <span class="nav__logo-by-name">Dr. Sergio Ríos</span>
+          </span>
         </a>
         <ul class="nav__links" id="navLinks">
           <li><a href="#diseno-sonrisa">Diseño de Sonrisa</a></li>
@@ -1144,7 +1147,10 @@
 
         <!-- Brand + address -->
         <div class="footer__brand">
-          <span class="footer__name">Dr. Sergio Ríos</span>
+          <a href="#hero" class="footer__brand-logo" aria-label="Riu by Dr. Sergio Ríos">
+            <img src="img/riu-logo.svg" alt="Riu" width="92" height="50">
+            <span class="footer__brand-by"><span>by</span> <strong>Dr. Sergio Ríos</strong></span>
+          </a>
           <p class="footer__tagline">Odontología de Alta Complejidad</p>
           <address class="footer__location">
             <span class="footer__addr-pin" aria-hidden="true">
