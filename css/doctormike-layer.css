@@ -261,28 +261,24 @@ body {
 /* Legacy doctor photo block — kept for safety (no longer rendered) */
 .dm-hero__photo { display: none; }
 
-/* ─── Bottom rotator: 3 cards in a row (OZ-style selector) ─
-   Active card is full white, inactive cards fade to 0.35.
-   Click any card to switch slides; auto-rotation continues. */
+/* ─── Bottom-right rotator: 3 small cards (OZ-style selector) ─
+   Compact card row anchored to the bottom-right corner of the hero. */
 .dm-hero__rotator {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: clamp(2rem, 5vh, 3.5rem);
+  right: clamp(1rem, 3vw, 2.25rem);
+  bottom: clamp(1.5rem, 4vh, 2.5rem);
   z-index: 4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  width: clamp(360px, 38vw, 520px);
 }
 
 .dm-hero__rotator-card {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem 0.85rem 0;
+  gap: 0.3rem;
+  padding: 0.75rem 0.65rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   text-decoration: none;
   color: #ffffff;
@@ -322,7 +318,7 @@ body {
 
 .dm-hero__rotator-num {
   font-family: var(--vo-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: 0.55rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--cta, #e79440);
@@ -330,10 +326,10 @@ body {
 }
 
 .dm-hero__rotator-label {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.005em;
   color: #ffffff;
 }
@@ -341,18 +337,23 @@ body {
 .dm-hero__rotator-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-  padding: 0.45rem 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 9999px;
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
   width: fit-content;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dm-hero__rotator-cta svg {
+  width: 11px;
+  height: 11px;
 }
 
 .dm-hero__rotator-card:hover .dm-hero__rotator-cta {
@@ -411,10 +412,8 @@ body {
   .dm-hero { min-height: 100vh; padding-top: 96px; padding-bottom: var(--space-xl); }
   .dm-hero__content { padding: var(--space-xl) var(--space-md); }
   .dm-hero__title { font-size: 2.5rem; white-space: normal; }
-  .dm-hero__rotator { padding: 0 1rem; bottom: 1.5rem; }
-  .dm-hero__rotator-card { padding: 0.85rem 0.5rem 0; gap: 0.35rem; }
-  .dm-hero__rotator-label { font-size: 0.95rem; }
-  .dm-hero__rotator-cta { font-size: 0.62rem; padding: 0.35rem 0.7rem; }
+  .dm-hero__rotator { right: 1rem; bottom: 1.25rem; width: calc(100% - 2rem); }
+  .dm-hero__rotator-label { font-size: 0.78rem; }
   .dm-hero__meta { font-size: 0.6rem; top: 80px; left: 1rem; }
 }
 
