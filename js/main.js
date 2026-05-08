@@ -8,6 +8,62 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ─── Lenis: smooth scroll with momentum ──────────────── */
+  function initLenis() {
+    if (prefersReducedMotion) return;
+    if (typeof Lenis === 'undefined') return; // CDN failed → fall back to native scroll
+
+    var lenis = new Lenis({
+      duration: 1.05,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      smoothTouch: false, // native scroll on mobile (better feel + no jank)
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Re-route hash links through Lenis so they get the smooth easing
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href');
+      if (!id || id === '#' || id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+    });
+
+    window.__lenis = lenis; // expose for debugging
+  }
+
+  /* ─── FX: generic in-view observer ─────────────────────
+     Adds .is-in-view to any .fx-* element when it scrolls into view.
+     Used by .fx-scale-out, .fx-tape, .fx-line-draw, etc.            */
+  function initFxInView() {
+    var els = document.querySelectorAll('.fx-scale-out, .fx-tape, .fx-line-draw');
+    if (!els.length) return;
+    if (prefersReducedMotion) {
+      els.forEach(function (el) { el.classList.add('is-in-view'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    els.forEach(function (el) { obs.observe(el); });
+  }
+
   /* ─── Directional Scroll Reveal ──────────────────────── */
   function initScrollReveal() {
     var elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
@@ -1353,6 +1409,8 @@
 
   /* ─── Initialize ────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
+    initLenis();
+    initFxInView();
     initScrollReveal();
     initServiceProgress();
     initServiceSectionEffects();

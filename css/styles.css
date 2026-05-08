@@ -99,6 +99,24 @@ html {
   font-size: 16px;
 }
 
+/* ─── Lenis smooth scroll integration ─────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -7921,4 +7939,145 @@ section.galeria.galeria--unvrs {
 @media (max-width: 600px) {
   .cta-final--v2 { padding-left: 0.75rem; padding-right: 0.75rem; }
   .cta-final--v2 .cta-final__card { border-radius: 18px; }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* FX: image scale-out entrance                                 */
+/* Image starts at scale 1.12 and settles to 1.0 when the       */
+/* wrapper enters viewport. CSS-only fallback: if .is-in-view   */
+/* is never added, image stays at 1.12 (visible, just cropped). */
+/* ═══════════════════════════════════════════════════════════ */
+.fx-scale-out {
+  overflow: hidden;
+}
+
+.fx-scale-out > img,
+.fx-scale-out > picture > img,
+.fx-scale-out > video {
+  transform: scale(1.12);
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.fx-scale-out.is-in-view > img,
+.fx-scale-out.is-in-view > picture > img,
+.fx-scale-out.is-in-view > video {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-scale-out > img,
+  .fx-scale-out > picture > img,
+  .fx-scale-out > video {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* FX: tape reveal                                              */
+/* A solid colored "tape" sits over the text and slides off to  */
+/* the right, revealing the text. Editorial / cinematic effect. */
+/* Apply to any inline element. No HTML wrapping required.      */
+/* ═══════════════════════════════════════════════════════════ */
+.fx-tape {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  isolation: isolate;
+}
+
+.fx-tape::before {
+  content: '';
+  position: absolute;
+  inset: -0.05em -0.1em;
+  background: var(--tape-color, var(--cta, #e79440));
+  transform: scaleX(1);
+  transform-origin: left center;
+  transition: transform 0.85s cubic-bezier(0.7, 0, 0.2, 1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fx-tape.is-in-view::before {
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-tape::before { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* FX: SVG line-draw                                            */
+/* Strokes inside an .fx-line-draw <svg> are drawn from 0 to    */
+/* full length when the element enters viewport. Set --line-len */
+/* per-element if your path length differs from the default.    */
+/* ═══════════════════════════════════════════════════════════ */
+.fx-line-draw path,
+.fx-line-draw line,
+.fx-line-draw circle,
+.fx-line-draw rect,
+.fx-line-draw polyline,
+.fx-line-draw polygon {
+  stroke-dasharray: var(--line-len, 1200);
+  stroke-dashoffset: var(--line-len, 1200);
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fx-line-draw.is-in-view path,
+.fx-line-draw.is-in-view line,
+.fx-line-draw.is-in-view circle,
+.fx-line-draw.is-in-view rect,
+.fx-line-draw.is-in-view polyline,
+.fx-line-draw.is-in-view polygon {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-line-draw path,
+  .fx-line-draw line,
+  .fx-line-draw circle,
+  .fx-line-draw rect,
+  .fx-line-draw polyline,
+  .fx-line-draw polygon {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* SECTION THEMING TOKENS                                       */
+/* Drop data-theme="dark" or data-theme="light" on any section  */
+/* and child components can read --section-bg, --section-fg,    */
+/* --section-muted, --section-accent.                           */
+/* ═══════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --section-bg:     var(--bg-white, #ffffff);
+  --section-fg:     var(--vo-dark, #051A24);
+  --section-muted:  var(--secondary, #909190);
+  --section-accent: var(--cta, #e79440);
+  --section-line:   rgba(100, 169, 158, 0.18);
+  background: var(--section-bg);
+  color: var(--section-fg);
+}
+
+[data-theme="soft"] {
+  --section-bg:     var(--bg-soft, #f4faf9);
+  --section-fg:     var(--vo-dark, #051A24);
+  --section-muted:  var(--secondary, #909190);
+  --section-accent: var(--cta, #e79440);
+  --section-line:   rgba(100, 169, 158, 0.20);
+  background: var(--section-bg);
+  color: var(--section-fg);
+}
+
+[data-theme="dark"] {
+  --section-bg:     var(--bg-dark, #2a3d3a);
+  --section-fg:     #ffffff;
+  --section-muted:  rgba(255, 255, 255, 0.65);
+  --section-accent: var(--cta, #e79440);
+  --section-line:   rgba(255, 255, 255, 0.12);
+  background: var(--section-bg);
+  color: var(--section-fg);
 }
