@@ -119,18 +119,29 @@ body {
   50%      { box-shadow: 0 0 0 8px rgba(231, 148, 64, 0); }
 }
 
-/* Centered content overlay */
+/* Content overlay */
 .dm-hero__content {
   position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-xl);
   max-width: 1320px;
   width: 100%;
   padding: var(--space-2xl) var(--space-lg);
-  animation: heroFadeSlide 1s var(--ease) 0.3s both;
+}
+
+.dm-hero__content--left {
+  justify-content: flex-start;
+}
+
+.dm-hero__content--left .dm-hero__text {
+  text-align: left;
+  max-width: 620px;
+}
+
+.dm-hero__content--centered {
+  justify-content: center;
 }
 
 .dm-hero__content--centered .dm-hero__text {
@@ -139,9 +150,10 @@ body {
 }
 
 .dm-hero__text {
-  text-align: center;
+  text-align: left;
 }
 
+/* Centered modifier centers child blocks */
 .dm-hero__content--centered .dm-hero__subtitle,
 .dm-hero__content--centered .dm-hero__trust,
 .dm-hero__content--centered .dm-hero__social,
@@ -149,6 +161,49 @@ body {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+}
+
+/* Left modifier — keep blocks left-aligned (resets any inherited center) */
+.dm-hero__content--left .dm-hero__subtitle,
+.dm-hero__content--left .dm-hero__trust,
+.dm-hero__content--left .dm-hero__social,
+.dm-hero__content--left .dm-hero__actions {
+  margin-left: 0;
+  margin-right: auto;
+  justify-content: flex-start;
+}
+
+/* ─── Hero text slide-up entrance with stagger ─────────────
+   Each child of .dm-hero__text fades up from translateY(40px).
+   Plays once on load (no observer needed — hero is above fold). */
+.dm-hero__text > * {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: dmHeroRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.dm-hero__text > *:nth-child(1) { animation-delay: 0.10s; }
+.dm-hero__text > *:nth-child(2) { animation-delay: 0.22s; }
+.dm-hero__text > *:nth-child(3) { animation-delay: 0.34s; }
+.dm-hero__text > *:nth-child(4) { animation-delay: 0.46s; }
+.dm-hero__text > *:nth-child(5) { animation-delay: 0.58s; }
+.dm-hero__text > *:nth-child(6) { animation-delay: 0.70s; }
+.dm-hero__text > *:nth-child(7) { animation-delay: 0.82s; }
+.dm-hero__text > *:nth-child(8) { animation-delay: 0.94s; }
+
+@keyframes dmHeroRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-hero__text > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 .dm-hero__eyebrow {
@@ -312,7 +367,7 @@ body {
   inset: 0;
   background: var(--cta, #e79440);
   transform-origin: left center;
-  animation: dmHeroProgressFill 5s linear forwards;
+  animation: dmHeroProgressFill 3.5s linear forwards;
 }
 
 @keyframes dmHeroProgressFill {

@@ -55,7 +55,7 @@
     var rotatorCards = document.querySelectorAll('.dm-hero__rotator-card');
     var progressDots = document.querySelectorAll('.dm-hero__progress-dot');
 
-    var INTERVAL_MS = 5000;
+    var INTERVAL_MS = 3500;
     var current = 0;
     var timer = null;
 
