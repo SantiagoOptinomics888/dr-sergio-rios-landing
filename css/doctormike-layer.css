@@ -174,7 +174,7 @@ body {
 }
 
 /* ─── Hero text slide-up entrance with stagger ─────────────
-   Each child of .dm-hero__text fades up from translateY(40px).
+   Direct children of .dm-hero__text fade up from translateY(40px).
    Plays once on load (no observer needed — hero is above fold). */
 .dm-hero__text > * {
   opacity: 0;
@@ -188,8 +188,6 @@ body {
 .dm-hero__text > *:nth-child(4) { animation-delay: 0.46s; }
 .dm-hero__text > *:nth-child(5) { animation-delay: 0.58s; }
 .dm-hero__text > *:nth-child(6) { animation-delay: 0.70s; }
-.dm-hero__text > *:nth-child(7) { animation-delay: 0.82s; }
-.dm-hero__text > *:nth-child(8) { animation-delay: 0.94s; }
 
 @keyframes dmHeroRise {
   to {
@@ -198,11 +196,59 @@ body {
   }
 }
 
+/* ─── Rotating headline stack ─────────────────────────────
+   Three slides stacked at the top of .dm-hero__text. Only the
+   active slide is visible. Each child (eyebrow/title/subtitle)
+   re-animates in with stagger when its slide becomes active.   */
+.dm-hero__rotating {
+  position: relative;
+  min-height: clamp(220px, 32vh, 320px);
+  width: 100%;
+}
+
+.dm-hero__rotating-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.dm-hero__rotating-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Each child of a rotating slide animates from translateY+fade.
+   Override the .dm-hero__text > * animation by using transition. */
+.dm-hero__rotating-slide > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: none !important;
+}
+
+.dm-hero__rotating-slide.is-active > *:nth-child(1) {
+  opacity: 1; transform: none;
+  transition-delay: 0.1s;
+}
+.dm-hero__rotating-slide.is-active > *:nth-child(2) {
+  opacity: 1; transform: none;
+  transition-delay: 0.22s;
+}
+.dm-hero__rotating-slide.is-active > *:nth-child(3) {
+  opacity: 1; transform: none;
+  transition-delay: 0.34s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .dm-hero__text > * {
+  .dm-hero__text > *,
+  .dm-hero__rotating-slide > * {
     opacity: 1;
     transform: none;
     animation: none;
+    transition: none;
   }
 }
 

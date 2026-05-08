@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=55">
-  <link rel="stylesheet" href="css/doctormike-layer.css?v=11">
+  <link rel="stylesheet" href="css/doctormike-layer.css?v=12">
 </head>
 <body>
 
@@ -88,11 +88,31 @@
       <!-- Left-aligned content overlay -->
       <div class="dm-hero__content dm-hero__content--left">
         <div class="dm-hero__text">
-          <p class="dm-hero__eyebrow"><span class="fx-tape is-in-view">Odontólogo</span></p>
-          <h1 class="dm-hero__title fx-char-reveal is-in-view">Sergio Ríos</h1>
-          <p class="dm-hero__subtitle">
-            Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
-          </p>
+          <!-- Rotating headline stack — synced with background slider -->
+          <div class="dm-hero__rotating" data-hero-text>
+            <div class="dm-hero__rotating-slide is-active" data-slide="0">
+              <p class="dm-hero__eyebrow"><span class="fx-tape is-in-view">Odontólogo</span></p>
+              <h1 class="dm-hero__title">Sergio Ríos</h1>
+              <p class="dm-hero__subtitle">
+                Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
+              </p>
+            </div>
+            <div class="dm-hero__rotating-slide" data-slide="1">
+              <p class="dm-hero__eyebrow"><span class="fx-tape">Diseño de Sonrisa</span></p>
+              <h1 class="dm-hero__title">Estética sin compromiso</h1>
+              <p class="dm-hero__subtitle">
+                Carillas de porcelana ultradelgadas y diseño digital DSD. Una sonrisa natural, simétrica y duradera, planificada al milímetro antes de empezar.
+              </p>
+            </div>
+            <div class="dm-hero__rotating-slide" data-slide="2">
+              <p class="dm-hero__eyebrow"><span class="fx-tape">Resultados Reales</span></p>
+              <h1 class="dm-hero__title">Su mejor sonrisa</h1>
+              <p class="dm-hero__subtitle">
+                Más de 500 pacientes han transformado su sonrisa. Tecnología 3D, planificación digital y un enfoque artesanal que respeta su personalidad.
+              </p>
+            </div>
+          </div>
+
           <div class="dm-hero__trust dm-hero__trust--marquee" aria-label="Formación profesional">
             <div class="dm-hero__trust-track">
               <span class="dm-hero__trust-item">
@@ -973,6 +993,6 @@
 
   <!-- Lenis — smooth scroll with momentum (10KB, no deps) -->
   <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/main.js?v=21"></script>
+  <script src="js/main.js?v=22"></script>
 </body>
 </html>

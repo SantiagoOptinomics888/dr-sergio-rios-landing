@@ -53,6 +53,7 @@
     if (slides.length < 2) return;
 
     var rotatorCards = document.querySelectorAll('.dm-hero__rotator-card');
+    var textSlides   = document.querySelectorAll('.dm-hero__rotating-slide');
     var progressDots = document.querySelectorAll('.dm-hero__progress-dot');
 
     var INTERVAL_MS = 3500;
@@ -66,10 +67,12 @@
       rotatorCards.forEach(function (c) {
         c.classList.toggle('is-active', parseInt(c.getAttribute('data-slide'), 10) === idx);
       });
+      textSlides.forEach(function (t) {
+        t.classList.toggle('is-active', parseInt(t.getAttribute('data-slide'), 10) === idx);
+      });
       progressDots.forEach(function (d, i) {
         d.classList.remove('is-active');
         if (i === idx) {
-          // Re-trigger fill animation on the active dot
           void d.offsetWidth;
           d.classList.add('is-active');
         }
