@@ -97,6 +97,24 @@
       hero.addEventListener('mouseleave', start);
     }
 
+    // Click on a rotator card: first click activates that slide;
+    // second click (when already active) lets the link navigate.
+    rotatorCards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        var idx = parseInt(card.getAttribute('data-slide'), 10);
+        if (isNaN(idx)) return;
+        if (current !== idx) {
+          // Not active yet — just switch slide
+          e.preventDefault();
+          setActive(idx);
+          // Reset the timer so the user has time to read this slide
+          stop();
+          start();
+        }
+        // If clicking on already-active card, let the <a> navigate normally
+      });
+    });
+
     // Pause when tab is hidden (saves CPU + avoids glitch on resume)
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) stop(); else start();
