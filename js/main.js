@@ -43,6 +43,75 @@
     window.__lenis = lenis; // expose for debugging
   }
 
+  /* ─── Hero slider — background photos + rotator card + progress ─
+     Drives 3 things in sync: .dm-hero__slide, .dm-hero__rotator-card,
+     .dm-hero__progress-dot. All keyed by [data-slide].             */
+  function initHeroSlider() {
+    var slider = document.querySelector('[data-hero-slider]');
+    if (!slider) return;
+    var slides = slider.querySelectorAll('.dm-hero__slide');
+    if (slides.length < 2) return;
+
+    var rotatorCards = document.querySelectorAll('.dm-hero__rotator-card');
+    var progressDots = document.querySelectorAll('.dm-hero__progress-dot');
+
+    var INTERVAL_MS = 5000;
+    var current = 0;
+    var timer = null;
+
+    function setActive(idx) {
+      var n = slides.length;
+      idx = ((idx % n) + n) % n;
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === idx); });
+      rotatorCards.forEach(function (c) {
+        c.classList.toggle('is-active', parseInt(c.getAttribute('data-slide'), 10) === idx);
+      });
+      progressDots.forEach(function (d, i) {
+        d.classList.remove('is-active');
+        if (i === idx) {
+          // Re-trigger fill animation on the active dot
+          void d.offsetWidth;
+          d.classList.add('is-active');
+        }
+      });
+      current = idx;
+    }
+
+    function tick() { setActive(current + 1); }
+
+    function start() {
+      if (timer) return;
+      timer = setInterval(tick, INTERVAL_MS);
+    }
+
+    function stop() {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = null;
+    }
+
+    // Pause on hover over the hero
+    var hero = document.getElementById('hero');
+    if (hero) {
+      hero.addEventListener('mouseenter', stop);
+      hero.addEventListener('mouseleave', start);
+    }
+
+    // Pause when tab is hidden (saves CPU + avoids glitch on resume)
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    if (prefersReducedMotion) {
+      // Show first slide only — no rotation
+      setActive(0);
+      return;
+    }
+
+    setActive(0);
+    start();
+  }
+
   /* ─── FX: char-by-char reveal split ─────────────────────
      Splits text inside .fx-char-reveal into per-char spans wrapped in
      a per-line .fx-char-line (so each char can translateY behind a
@@ -1453,6 +1522,7 @@
   /* ─── Initialize ────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initLenis();
+    initHeroSlider();
     initCharReveal();
     initFxInView();
     initScrollReveal();
