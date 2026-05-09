@@ -202,7 +202,7 @@ body {
    re-animates in with stagger when its slide becomes active.   */
 .dm-hero__rotating {
   position: relative;
-  min-height: clamp(220px, 32vh, 320px);
+  min-height: clamp(300px, 42vh, 420px);
   width: 100%;
 }
 
@@ -240,6 +240,90 @@ body {
 .dm-hero__rotating-slide.is-active > *:nth-child(3) {
   opacity: 1; transform: none;
   transition-delay: 0.34s;
+}
+
+.dm-hero__rotating-slide.is-active > *:nth-child(4) {
+  opacity: 1; transform: none;
+  transition-delay: 0.46s;
+}
+
+/* ─── Per-slide layout dynamism ────────────────────────────
+   Each slide adds its own decorative element under the
+   subtitle so the bottom of the text block feels different. */
+
+/* Slide 0 — chips row (compact pill list) */
+.dm-hero__chips {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.dm-hero__chips li {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Slide 1 — single big stat badge */
+.dm-hero__badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0.6rem 1rem 0.6rem 0;
+  border-left: 3px solid var(--cta, #e79440);
+  padding-left: 1rem;
+}
+
+.dm-hero__badge-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--cta, #e79440);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.dm-hero__badge-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.01em;
+  max-width: 180px;
+  line-height: 1.3;
+}
+
+/* Slide-specific tweaks for stronger differentiation */
+.dm-hero__rotating-slide--feature .dm-hero__title em {
+  font-style: italic;
+  color: var(--cta, #e79440);
+  font-weight: 400;
+}
+
+.dm-hero__rotating-slide--bold .dm-hero__title {
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.dm-hero__rotating-slide--intro .dm-hero__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.dm-hero__subtitle strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=56">
-  <link rel="stylesheet" href="css/doctormike-layer.css?v=12">
+  <link rel="stylesheet" href="css/doctormike-layer.css?v=13">
 </head>
 <body>
 
@@ -26,11 +26,11 @@
     <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
-        <a href="#hero" class="nav__logo nav__logo--riu" aria-label="Riu by Dr. Sergio Ríos — Inicio">
+        <a href="#hero" class="nav__logo nav__logo--riu" aria-label="Riu by Sergio Ríos — Inicio">
           <img class="nav__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="54" height="54">
           <span class="nav__logo-by">
             <span class="nav__logo-by-kicker">by</span>
-            <span class="nav__logo-by-name">Dr. Sergio Ríos</span>
+            <span class="nav__logo-by-name">Sergio Ríos</span>
           </span>
         </a>
         <ul class="nav__links" id="navLinks">
@@ -73,7 +73,7 @@
       <div class="dm-hero__slider" data-hero-slider aria-hidden="true">
         <div class="dm-hero__slide is-active" data-slide="0" style="background-image: url('img/dr-sergio-rios-hero2.png');"></div>
         <div class="dm-hero__slide" data-slide="1" style="background-image: url('img/veneers-lateral-detail.jpg');"></div>
-        <div class="dm-hero__slide" data-slide="2" style="background-image: url('img/smile-front-female.jpg');"></div>
+        <div class="dm-hero__slide" data-slide="2" style="background-image: url('img/Ortodoncia%20Invisible.png');"></div>
       </div>
 
       <!-- Dark overlay (now also gradient for text contrast) -->
@@ -90,27 +90,48 @@
         <div class="dm-hero__text">
           <!-- Rotating headline stack — synced with background slider -->
           <div class="dm-hero__rotating" data-hero-text>
-            <div class="dm-hero__rotating-slide is-active" data-slide="0">
-              <p class="dm-hero__eyebrow"><span class="fx-tape is-in-view">Odontólogo</span></p>
-              <h1 class="dm-hero__title">Sergio Ríos</h1>
+
+            <!-- Slide 0 — ¿Quiénes somos? (Riu Dental Studio intro) -->
+            <div class="dm-hero__rotating-slide dm-hero__rotating-slide--intro is-active" data-slide="0">
+              <p class="dm-hero__eyebrow"><span class="fx-tape is-in-view">¿Quiénes somos?</span></p>
+              <h1 class="dm-hero__title">Riu Dental <em>Studio</em></h1>
               <p class="dm-hero__subtitle">
-                Odontología de alta complejidad con más de 15 años de experiencia internacional. Implantología avanzada, diseño de sonrisa y rehabilitación oral completa.
+                La clínica del <strong>Dr. Sergio Ríos</strong> en El Poblado, Medellín. Diseño de sonrisa, ortodoncia, rehabilitación oral e implantología avanzada bajo un mismo enfoque artesanal.
               </p>
+              <ul class="dm-hero__chips">
+                <li>+15 años de trayectoria</li>
+                <li>Formación NYU · Barcelona</li>
+                <li>+500 pacientes</li>
+              </ul>
             </div>
-            <div class="dm-hero__rotating-slide" data-slide="1">
+
+            <!-- Slide 1 — Diseño de Sonrisa -->
+            <div class="dm-hero__rotating-slide dm-hero__rotating-slide--feature" data-slide="1">
               <p class="dm-hero__eyebrow"><span class="fx-tape">Diseño de Sonrisa</span></p>
-              <h1 class="dm-hero__title">Estética sin compromiso</h1>
+              <h1 class="dm-hero__title">Estética que <em>respeta</em><br>su personalidad</h1>
               <p class="dm-hero__subtitle">
-                Carillas de porcelana ultradelgadas y diseño digital DSD. Una sonrisa natural, simétrica y duradera, planificada al milímetro antes de empezar.
+                Carillas de porcelana ultradelgadas y diseño digital DSD. Resultado natural, simétrico y duradero, planificado al milímetro antes de empezar.
+              </p>
+              <p class="dm-hero__badge">
+                <span class="dm-hero__badge-num">10</span>
+                <span class="dm-hero__badge-label">años de garantía estética</span>
               </p>
             </div>
-            <div class="dm-hero__rotating-slide" data-slide="2">
-              <p class="dm-hero__eyebrow"><span class="fx-tape">Resultados Reales</span></p>
-              <h1 class="dm-hero__title">Su mejor sonrisa</h1>
+
+            <!-- Slide 2 — Ortodoncia -->
+            <div class="dm-hero__rotating-slide dm-hero__rotating-slide--bold" data-slide="2">
+              <p class="dm-hero__eyebrow"><span class="fx-tape">Ortodoncia</span></p>
+              <h1 class="dm-hero__title">Alineación dental<br>de alta tecnología</h1>
               <p class="dm-hero__subtitle">
-                Más de 500 pacientes han transformado su sonrisa. Tecnología 3D, planificación digital y un enfoque artesanal que respeta su personalidad.
+                Brackets estéticos de cerámica o zafiro, autoligado y arcos inteligentes. Escaneo intraoral 3D y planificación digital para resultados predecibles.
               </p>
+              <ul class="dm-hero__chips">
+                <li>Escaneo 3D</li>
+                <li>Brackets de autoligado</li>
+                <li>Materiales estéticos</li>
+              </ul>
             </div>
+
           </div>
 
           <div class="dm-hero__trust dm-hero__trust--marquee" aria-label="Formación profesional">
@@ -157,19 +178,19 @@
         </div>
       </div>
 
-      <!-- Bottom-right rotator: 3 specialty cards rotating in sync with slider -->
+      <!-- Bottom-right rotator: 3 cards rotating in sync with slider -->
       <div class="dm-hero__rotator" data-hero-rotator>
-        <a href="#diseno-sonrisa" class="dm-hero__rotator-card is-active" data-slide="0">
+        <a href="#trayectoria" class="dm-hero__rotator-card is-active" data-slide="0">
           <span class="dm-hero__rotator-num">01</span>
+          <span class="dm-hero__rotator-label">¿Quiénes somos?</span>
+        </a>
+        <a href="#diseno-sonrisa" class="dm-hero__rotator-card" data-slide="1">
+          <span class="dm-hero__rotator-num">02</span>
           <span class="dm-hero__rotator-label">Diseño de Sonrisa</span>
         </a>
-        <a href="#rehabilitacion" class="dm-hero__rotator-card" data-slide="1">
-          <span class="dm-hero__rotator-num">02</span>
-          <span class="dm-hero__rotator-label">Rehabilitación Oral</span>
-        </a>
-        <a href="#implantologia" class="dm-hero__rotator-card" data-slide="2">
+        <a href="#ortodoncia" class="dm-hero__rotator-card" data-slide="2">
           <span class="dm-hero__rotator-num">03</span>
-          <span class="dm-hero__rotator-label">Implantología Avanzada</span>
+          <span class="dm-hero__rotator-label">Ortodoncia</span>
         </a>
       </div>
 
@@ -880,9 +901,9 @@
 
         <!-- Brand + address -->
         <div class="footer__brand">
-          <a href="#hero" class="footer__brand-logo" aria-label="Riu by Dr. Sergio Ríos">
+          <a href="#hero" class="footer__brand-logo" aria-label="Riu by Sergio Ríos">
             <img src="img/RIU.png" alt="Riu Dental Studio" width="68" height="68">
-            <span class="footer__brand-by"><span>by</span> <strong>Dr. Sergio Ríos</strong></span>
+            <span class="footer__brand-by"><span>by</span> <strong>Sergio Ríos</strong></span>
           </a>
           <p class="footer__tagline">Odontología de Alta Complejidad</p>
           <address class="footer__location">
