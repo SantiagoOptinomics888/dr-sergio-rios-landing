@@ -100,21 +100,13 @@
       hero.addEventListener('mouseleave', start);
     }
 
-    // Click on a rotator card: first click activates that slide;
-    // second click (when already active) lets the link navigate.
+    // Hover on a rotator card previews the slide; click navigates normally.
     rotatorCards.forEach(function (card) {
-      card.addEventListener('click', function (e) {
+      card.addEventListener('mouseenter', function () {
         var idx = parseInt(card.getAttribute('data-slide'), 10);
-        if (isNaN(idx)) return;
-        if (current !== idx) {
-          // Not active yet — just switch slide
-          e.preventDefault();
-          setActive(idx);
-          // Reset the timer so the user has time to read this slide
-          stop();
-          start();
-        }
-        // If clicking on already-active card, let the <a> navigate normally
+        if (isNaN(idx) || idx === current) return;
+        setActive(idx);
+        stop(); start(); // restart timer so the previewed slide gets full duration
       });
     });
 
