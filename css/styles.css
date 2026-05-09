@@ -376,8 +376,8 @@ ul { list-style: none; }
 }
 
 .nav__logo--riu .nav__logo-mark {
-  height: 88px;
-  width: 88px;
+  height: 104px;
+  width: 104px;
   display: block;
   object-fit: contain;
   transition: transform 0.3s var(--ease);
@@ -413,7 +413,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  .nav__logo--riu .nav__logo-mark { height: 64px; width: 64px; }
+  .nav__logo--riu .nav__logo-mark { height: 76px; width: 76px; }
   .nav__logo-by { padding-left: 0.5rem; }
   .nav__logo-by-kicker { font-size: 0.55rem; }
   .nav__logo-by-name { font-size: 0.85rem; }
