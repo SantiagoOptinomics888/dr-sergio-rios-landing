@@ -201,19 +201,14 @@ body {
    active slide is visible. Each child (eyebrow/title/subtitle)
    re-animates in with stagger when its slide becomes active.   */
 .dm-hero__rotating {
-  position: relative;
-  min-height: clamp(380px, 52vh, 480px);
+  display: grid;
+  grid-template-areas: "stack";
   width: 100%;
-  margin-bottom: 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .dm-hero__rotating { min-height: clamp(320px, 50vh, 420px); }
+  margin-bottom: 1.5rem;
 }
 
 .dm-hero__rotating-slide {
-  position: absolute;
-  inset: 0;
+  grid-area: stack;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
