@@ -44,6 +44,11 @@ body {
   justify-content: center;
   overflow: hidden;
   background: #0c1a18;
+  /* Push content below the fixed white nav so the eyebrow never gets clipped.
+     Top padding clears the nav (logo 104px + ~30px padding = ~134px). */
+  padding-top: 140px;
+  padding-bottom: 5rem;
+  box-sizing: border-box;
 }
 
 /* ─── Background slider — full-bleed photos crossfade ────── */
