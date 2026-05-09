@@ -395,6 +395,90 @@ body {
   color: var(--cta, #e79440);
 }
 
+/* ─── Slide 1 row: IG chip + location card side-by-side ──── */
+.dm-hero__intro-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+@media (max-width: 600px) {
+  .dm-hero__intro-row { flex-direction: column; gap: 0.65rem; }
+}
+
+/* ─── Location card (creative + subtle) ──────────────────── */
+.dm-hero__loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 1rem 0.6rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  width: fit-content;
+  max-width: 100%;
+  transition: background 0.3s ease, transform 0.3s var(--ease), border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dm-hero__loc:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: var(--cta, #e79440);
+  transform: translateY(-2px);
+}
+
+.dm-hero__loc-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--cta, #e79440);
+  color: #ffffff;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(231, 148, 64, 0.55);
+  animation: dmHeroLocPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dmHeroLocPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(231, 148, 64, 0.55); }
+  50%      { box-shadow: 0 0 0 10px rgba(231, 148, 64, 0); }
+}
+
+.dm-hero__loc-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+.dm-hero__loc-line {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.005em;
+}
+
+.dm-hero__loc-sub {
+  font-family: var(--vo-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-hero__loc-pin { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dm-hero__text > *,
   .dm-hero__rotating-slide > * {
