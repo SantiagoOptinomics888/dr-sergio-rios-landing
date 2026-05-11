@@ -3301,7 +3301,30 @@ ul { list-style: none; }
   color: var(--text-light);
 }
 
-/* (contact responsive moved to main responsive block above) */
+/* ─── Contact responsive (placed after base rules so MQs win) ── */
+@media (max-width: 1024px) {
+  .ct__bento { grid-template-columns: 1fr; }
+  .ct__card--form { grid-column: 1; grid-row: auto; }
+  .ct__card--map { grid-column: 1; min-height: 260px; }
+}
+
+@media (max-width: 768px) {
+  .ct__f-row { grid-template-columns: 1fr; gap: 0; }
+  .ct__card--form { padding: var(--space-lg); }
+  .ct { padding-top: calc(70px + var(--space-lg)); }
+  .ct__card--map { min-height: 240px; }
+  .ct__title { font-size: clamp(1.9rem, 5vw, 2.4rem); }
+}
+
+@media (max-width: 480px) {
+  .ct__title { font-size: 1.8rem; }
+  .ct__chips { gap: 0.35rem; }
+  .ct__chip span { padding: 0.5rem 0.9rem; font-size: 0.78rem; min-height: 44px; }
+  .ct__card { padding: var(--space-md); }
+  .ct__card--form { padding: var(--space-md); }
+  .ct__submit { width: 100%; justify-content: center; }
+  .ct__container { padding: 0 var(--space-sm); }
+}
 
 
 /* ═══════════════════════════════════════════════════════════ */
