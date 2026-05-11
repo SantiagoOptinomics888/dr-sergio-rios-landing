@@ -40,7 +40,8 @@
       lenis.scrollTo(target, { offset: -80, duration: 1.4 });
     });
 
-    window.__lenis = lenis; // expose for debugging
+    // Flag used by initSmoothScroll to avoid double-binding hash-link handlers.
+    window.__lenis = lenis;
   }
 
   /* ─── Hero slider — background photos + rotator card + progress ─
@@ -557,35 +558,6 @@
 
   }
 
-  /* ─── Turismo Médico — stats count-up when visible ──── */
-  function initTurismoStats() {
-    var nums = document.querySelectorAll('.turismo__stat-num');
-    if (!nums.length) return;
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var target = parseInt(el.getAttribute('data-count'), 10);
-        if (!target || isNaN(target)) { observer.unobserve(el); return; }
-        var duration = 1400;
-        var start = null;
-        function step(ts) {
-          if (!start) start = ts;
-          var progress = Math.min(1, (ts - start) / duration);
-          var eased = 1 - Math.pow(1 - progress, 4); // ease-out-quart
-          el.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target;
-        }
-        requestAnimationFrame(step);
-        observer.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    nums.forEach(function (n) { observer.observe(n); });
-  }
-
   /* ─── Service word-by-word reveal (tpl A/B/C/D titles) ─ */
   function initServiceWordReveal() {
     var titles = document.querySelectorAll('.svc--tplA .svc__title, .svc--tplB .svc__title, .svc--tplC .svc__title, .svc--tplD .svc__title');
@@ -768,68 +740,6 @@
     // Parallax on service numbers disabled — Viktor Oddy style is static.
   }
 
-  /* ─── Hero Text Typewriter / Split ───────────────────── */
-  function initHeroTextAnimation() {
-    if (prefersReducedMotion) return;
-
-    var title = document.querySelector('.hero__title');
-    if (!title) return;
-
-    title.classList.add('hero__title--animate');
-  }
-
-  /* ─── Parallax on Scroll ─────────────────────────────── */
-  function initParallax() {
-    if (prefersReducedMotion) return;
-
-    var heroImage = document.querySelector('.hero__image-frame');
-    var orb1 = document.querySelector('.hero__bg-orb--1');
-    var orb2 = document.querySelector('.hero__bg-orb--2');
-    var badges = document.querySelectorAll('.hero__badge');
-    var parallaxImages = document.querySelectorAll('.parallax-img');
-
-    var ticking = false;
-
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(function () {
-          var scrollY = window.scrollY;
-          var vh = window.innerHeight;
-
-          if (scrollY < vh * 1.5) {
-            if (heroImage) {
-              heroImage.style.transform = 'translateY(' + (scrollY * 0.08) + 'px)';
-            }
-            if (orb1) {
-              orb1.style.transform = 'translate(' + (scrollY * -0.04) + 'px, ' + (scrollY * 0.06) + 'px)';
-            }
-            if (orb2) {
-              orb2.style.transform = 'translate(' + (scrollY * 0.03) + 'px, ' + (scrollY * -0.05) + 'px)';
-            }
-            badges.forEach(function (badge, i) {
-              var rate = i === 0 ? -0.12 : 0.1;
-              badge.style.transform = 'translateY(' + (scrollY * rate) + 'px)';
-            });
-          }
-
-          parallaxImages.forEach(function (img) {
-            var rect = img.getBoundingClientRect();
-            if (rect.top < vh && rect.bottom > 0) {
-              var progress = (vh - rect.top) / (vh + rect.height);
-              var offset = (progress - 0.5) * 40;
-              img.style.transform = 'translateY(' + offset + 'px) scale(1.05)';
-            }
-          });
-
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
   /* ─── Floating Sticky Navigation + Progress Bar ──────── */
   function initStickyNav() {
     var nav = document.getElementById('nav');
@@ -900,27 +810,6 @@
     });
   }
 
-  /* ─── Smooth Image Reveal on Scroll ──────────────────── */
-  function initImageReveal() {
-    if (prefersReducedMotion) return;
-
-    var images = document.querySelectorAll('.hero__photo, .service__magazine-photo, .service__case-photo, .service__ortho-photo, .galeria__photo');
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('img-revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    images.forEach(function (img) { observer.observe(img); });
-  }
-
   /* ─── Mobile Menu with A11y ─────────────────────────── */
   function initMobileMenu() {
     var hamburger = document.getElementById('hamburger');
@@ -964,15 +853,21 @@
   }
 
   /* ─── Smooth Scroll for Anchors ─────────────────────── */
+  /* Fallback when Lenis is unavailable. Lenis's own document-level
+     click handler in initLenis() handles hash links when present —
+     guard here so we don't run two competing smooth-scroll animations. */
   function initSmoothScroll() {
+    if (window.__lenis) return;
+    var navHeight = 80;
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
         var targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        if (!targetId || targetId === '#' || targetId.length < 2) return;
         var target = document.querySelector(targetId);
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       });
     });
   }
@@ -1542,18 +1437,14 @@
     initServiceProgress();
     initServiceSectionEffects();
     initServiceWordReveal();
-    initTurismoStats();
     initSonrisaShowcase();
     initSonrisaBanner();
     initServiceTemplates();
     initServiceParallax();
     initScrollyFeatures();
-    initHeroTextAnimation();
-    initParallax();
     initStickyNav();
     initMagneticButtons();
     initTiltCards();
-    initImageReveal();
     initMobileMenu();
     initSmoothScroll();
     initActiveNavLink();
