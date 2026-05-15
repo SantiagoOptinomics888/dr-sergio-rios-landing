@@ -1,0 +1,11 @@
+# robots.txt — Dr. Sergio Ríos · Odontología Especializada
+# https://santiagooptinomics888.github.io/dr-sergio-rios-landing/
+
+User-agent: *
+Allow: /
+
+# Block working/dev files from indexing
+Disallow: /_check-nav.html
+
+# Sitemap
+Sitemap: https://santiagooptinomics888.github.io/dr-sergio-rios-landing/sitemap.xml
