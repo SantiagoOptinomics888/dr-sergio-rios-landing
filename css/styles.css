@@ -3383,6 +3383,14 @@ ul { list-style: none; }
   position: absolute;
   opacity: 0;
   pointer-events: none;
+  width: 1px;
+  height: 1px;
+  left: 0;
+  top: 0;
+}
+
+.ct__chip {
+  position: relative;
 }
 
 .ct__chip span {
@@ -3971,10 +3979,14 @@ ul { list-style: none; }
 }
 
 /* Responsive — Contact V2 */
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
+  /* Collapse quick contact to single column when email card would overflow */
   .ct__quick { grid-template-columns: 1fr; gap: 0.65rem; }
   .ct__info { grid-template-columns: 1fr; }
   .ct__info-map { min-height: 280px; }
+  /* Prevent long email from overflowing card */
+  .ct__quick-text strong { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .ct__quick-text { min-width: 0; overflow: hidden; }
 }
 
 @media (max-width: 768px) {
@@ -3987,10 +3999,17 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .ct__form-shell { padding: var(--space-md); }
-  .ct__quick-card { padding: 0.85rem 1rem; }
-  .ct__quick-text strong { font-size: 0.85rem; }
+  .ct__quick-card { padding: 0.75rem 0.9rem; gap: 0.65rem; }
+  .ct__quick-text strong { font-size: 0.8rem; }
+  .ct__quick-cta { font-size: 0.7rem; }
+  .ct__quick-icon { width: 36px; height: 36px; }
   .ct__chips--v2 .ct__chip span { padding: 0.6rem 1rem; font-size: 0.85rem; }
   .ct--v2 .ct__f-input input { font-size: 0.95rem; padding-left: 2.4rem; }
+}
+
+@media (max-width: 360px) {
+  .ct__quick-card { padding: 0.7rem 0.75rem; gap: 0.55rem; }
+  .ct__quick-cta { display: none; }
 }
 
 

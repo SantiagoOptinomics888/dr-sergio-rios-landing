@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><body>
+<iframe src="http://localhost:8000/index.html" id="page" style="width:375px;height:600px;border:0"></iframe>
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const doc = document.getElementById('page').contentDocument;
+    const win = document.getElementById('page').contentWindow;
+    const ham = doc.querySelector('.nav__hamburger');
+    const links = doc.querySelector('.nav__links');
+    const cta = doc.querySelector('.nav__cta');
+    let r = [];
+    if (ham) {
+      const cs = win.getComputedStyle(ham);
+      const rect = ham.getBoundingClientRect();
+      r.push(`hamburger: display=${cs.display} visibility=${cs.visibility} pos=${Math.round(rect.left)},${Math.round(rect.top)} w=${Math.round(rect.width)} h=${Math.round(rect.height)}`);
+    } else r.push('hamburger: NOT FOUND');
+    if (links) {
+      const cs = win.getComputedStyle(links);
+      r.push(`nav__links: display=${cs.display}`);
+    }
+    if (cta) {
+      const cs = win.getComputedStyle(cta);
+      r.push(`nav__cta: display=${cs.display}`);
+    }
+    document.body.insertAdjacentHTML('afterbegin', '<pre style="background:white;color:black;padding:12px;font:12px monospace;">'+r.join('\n')+'</pre>');
+  }, 1500);
+});
+</script>
+</body></html>
