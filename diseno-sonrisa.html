@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=69">
+  <link rel="stylesheet" href="css/styles.css?v=70">
   <link rel="stylesheet" href="css/service-page.css?v=1">
 
   <!-- ═══ Structured Data — JSON-LD ═══ -->
@@ -88,20 +88,77 @@
 
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <header>
-    <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Navegación principal">
+  <header class="site-header" id="siteHeader">
+
+    <!-- TOP BAR (desktop only · se oculta al hacer scroll · estilo OdontoSur) -->
+    <div class="top-bar" aria-label="Información de contacto">
+      <div class="top-bar__inner">
+        <!-- LEFT: Logo + tagline -->
+        <a href="index.html" class="top-bar__logo" aria-label="Riu Dental Studio — Inicio">
+          <img class="top-bar__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="120" height="120">
+          <span class="top-bar__logo-text">
+            <span class="top-bar__logo-name">Riu Dental Studio</span>
+            <span class="top-bar__logo-tag">by Sergio Ríos</span>
+            <span class="top-bar__logo-sub">Odontología de Alta Complejidad</span>
+          </span>
+        </a>
+
+        <!-- RIGHT: Info cards + CTA -->
+        <div class="top-bar__right">
+          <span class="top-bar__info" aria-label="Dirección">
+            <span class="top-bar__info-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12 14a1 1 0 1 0-1-1a1 1 0 0 0 1 1m5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1m-5 4a1 1 0 1 0-1-1a1 1 0 0 0 1 1m5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1M7 14a1 1 0 1 0-1-1a1 1 0 0 0 1 1M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16Zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1ZM7 18a1 1 0 1 0-1-1a1 1 0 0 0 1 1"/>
+              </svg>
+            </span>
+            <span class="top-bar__info-text">
+              <strong>Ciudad del Río</strong>
+              <span>Cl. 19A #44-25 · Piso 12</span>
+            </span>
+          </span>
+
+          <a href="https://wa.me/573205224509?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" class="top-bar__info top-bar__info--link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <span class="top-bar__info-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M15.9 1C12.1 1.1 9 4.2 9 8c0 3.9 3.1 7 7 7s7-3.1 7-7s-3.1-7-7.1-7c.1 0 0 0 0 0m.1 2c2.8 0 5 2.2 5 5s-2.2 5-5 5s-5-2.2-5-5s2.2-5 5-5m-1 1v5l3.6 2.2l.8-1.2l-2.9-1.7V4zM4.6 12.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2q1.65.6 3.6.6c.5 0 1 .5 1 1V22c0 .5-.5 1-1 1C8.6 23 1 15.4 1 6c0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1q0 1.8.6 3.6c.1.4 0 .7-.2 1z"/>
+              </svg>
+            </span>
+            <span class="top-bar__info-text">
+              <strong>+57 320 522 4509</strong>
+              <span>WhatsApp · Llamar</span>
+            </span>
+          </a>
+
+          <a href="contacto.html" class="top-bar__cta">Agendar Consulta</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV BAR (sticky) -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo nav__logo--riu" aria-label="Riu by Sergio Ríos — Inicio"><img class="nav__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="54" height="54"><span class="nav__logo-by"><span class="nav__logo-by-kicker">by</span><span class="nav__logo-by-name">Sergio Ríos</span></span></a>
+        <a href="index.html" class="nav__logo nav__logo--riu nav__logo--mobile-only" aria-label="Riu by Sergio Ríos — Inicio">
+          <img class="nav__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="54" height="54">
+          <span class="nav__logo-by">
+            <span class="nav__logo-by-kicker">by</span>
+            <span class="nav__logo-by-name">Sergio Ríos</span>
+          </span>
+        </a>
         <ul class="nav__links" id="navLinks">
-          <li><a href="index.html#trayectoria">Trayectoria</a></li>
-          <li><a href="diseno-sonrisa.html" aria-current="page">Diseño de Sonrisa</a></li>
-          <li><a href="coronas.html">Coronas</a></li>
-          <li><a href="ortodoncia.html">Ortodoncia</a></li>
-          <li><a href="implantologia.html">Implantología</a></li>
+          <li><a href="index.html#hero">Inicio</a></li>
+          <li><a href="index.html#diseno-sonrisa">Diseño de Sonrisa</a></li>
+          <li><a href="index.html#rehabilitacion">Coronas</a></li>
+          <li><a href="index.html#ortodoncia">Ortodoncia</a></li>
+          <li><a href="index.html#implantologia">Implantología</a></li>
+          <li><a href="index.html#trayectoria">Equipo</a></li>
+          <li><a href="index.html#galeria">Casos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
-        <a href="contacto.html" class="nav__cta">Agendar Consulta</a>
-        <button class="nav__hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        <a href="contacto.html" class="nav__cta nav__cta--mobile-only" role="button">Agendar Consulta</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>

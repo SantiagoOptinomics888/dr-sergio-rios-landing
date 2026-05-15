@@ -743,6 +743,7 @@
   /* ─── Floating Sticky Navigation + Progress Bar ──────── */
   function initStickyNav() {
     var nav = document.getElementById('nav');
+    var header = document.getElementById('siteHeader');
     var progressBar = document.querySelector('.nav__progress');
     if (!nav) return;
 
@@ -755,8 +756,10 @@
 
       if (currentScroll > scrollThreshold) {
         nav.classList.add('nav--scrolled');
+        if (header) header.classList.add('is-scrolled');
       } else {
         nav.classList.remove('nav--scrolled');
+        if (header) header.classList.remove('is-scrolled');
       }
 
       if (progressBar) {

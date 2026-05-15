@@ -35,9 +35,9 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="img/dr-sergio-rios-hero2.png" fetchpriority="high">
+  <link rel="preload" as="image" href="img/Slider%201.png" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=69">
+  <link rel="stylesheet" href="css/styles.css?v=78">
   <link rel="stylesheet" href="css/doctormike-layer.css?v=18">
 
   <!-- ═══ Structured Data — JSON-LD ═══ -->
@@ -166,26 +166,80 @@
   <!-- ═══════════════════════════════════════════════════ -->
   <!-- FLOATING NAVIGATION                                 -->
   <!-- ═══════════════════════════════════════════════════ -->
-  <header>
+  <header class="site-header" id="siteHeader">
+
+    <!-- TOP BAR (desktop only · se oculta al hacer scroll · estilo OdontoSur) -->
+    <div class="top-bar" aria-label="Información de contacto">
+      <div class="top-bar__inner">
+        <!-- LEFT: Logo + tagline grande -->
+        <a href="#hero" class="top-bar__logo" aria-label="Riu Dental Studio — Inicio">
+          <img class="top-bar__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="120" height="120">
+          <span class="top-bar__logo-text">
+            <span class="top-bar__logo-name">Riu Dental Studio</span>
+            <span class="top-bar__logo-tag">by Sergio Ríos</span>
+            <span class="top-bar__logo-sub">Odontología de Alta Complejidad</span>
+          </span>
+        </a>
+
+        <!-- RIGHT: Info cards + CTA (OdontoSur style — outline icons, no bg) -->
+        <div class="top-bar__right">
+          <!-- Address info-card: SCHEDULE icon (uil) -->
+          <span class="top-bar__info" aria-label="Dirección">
+            <span class="top-bar__info-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12 14a1 1 0 1 0-1-1a1 1 0 0 0 1 1m5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1m-5 4a1 1 0 1 0-1-1a1 1 0 0 0 1 1m5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1M7 14a1 1 0 1 0-1-1a1 1 0 0 0 1 1M19 4h-1V3a1 1 0 0 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16Zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1ZM7 18a1 1 0 1 0-1-1a1 1 0 0 0 1 1"/>
+              </svg>
+            </span>
+            <span class="top-bar__info-text">
+              <strong>Ciudad del Río</strong>
+              <span>Cl. 19A #44-25 · Piso 12</span>
+            </span>
+          </span>
+
+          <!-- WhatsApp info-card: PHONE SCHEDULE icon (mdi) -->
+          <a href="https://wa.me/573205224509?text=Hola%2C%20quiero%20agendar%20una%20valoraci%C3%B3n" class="top-bar__info top-bar__info--link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <span class="top-bar__info-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M15.9 1C12.1 1.1 9 4.2 9 8c0 3.9 3.1 7 7 7s7-3.1 7-7s-3.1-7-7.1-7c.1 0 0 0 0 0m.1 2c2.8 0 5 2.2 5 5s-2.2 5-5 5s-5-2.2-5-5s2.2-5 5-5m-1 1v5l3.6 2.2l.8-1.2l-2.9-1.7V4zM4.6 12.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2q1.65.6 3.6.6c.5 0 1 .5 1 1V22c0 .5-.5 1-1 1C8.6 23 1 15.4 1 6c0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1q0 1.8.6 3.6c.1.4 0 .7-.2 1z"/>
+              </svg>
+            </span>
+            <span class="top-bar__info-text">
+              <strong>+57 320 522 4509</strong>
+              <span>WhatsApp · Llamar</span>
+            </span>
+          </a>
+
+          <!-- CTA Button -->
+          <a href="contacto.html" class="top-bar__cta">Agendar Consulta</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV BAR (sticky · siempre visible al scroll) -->
     <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
       <div class="nav__progress" aria-hidden="true"></div>
       <div class="nav__inner">
-        <a href="#hero" class="nav__logo nav__logo--riu" aria-label="Riu by Sergio Ríos — Inicio">
+        <!-- Mobile: logo (mantiene comportamiento actual) -->
+        <a href="#hero" class="nav__logo nav__logo--riu nav__logo--mobile-only" aria-label="Riu by Sergio Ríos — Inicio">
           <img class="nav__logo-mark" src="img/RIU.png" alt="Riu Dental Studio" width="54" height="54">
           <span class="nav__logo-by">
             <span class="nav__logo-by-kicker">by</span>
             <span class="nav__logo-by-name">Sergio Ríos</span>
           </span>
         </a>
+        <!-- Desktop: links centrados -->
         <ul class="nav__links" id="navLinks">
+          <li><a href="#hero">Inicio</a></li>
           <li><a href="#diseno-sonrisa">Diseño de Sonrisa</a></li>
           <li><a href="#rehabilitacion">Coronas</a></li>
           <li><a href="#ortodoncia">Ortodoncia</a></li>
           <li><a href="#implantologia">Implantología</a></li>
           <li><a href="#trayectoria">Equipo</a></li>
           <li><a href="#galeria">Casos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
-        <a href="contacto.html" class="nav__cta" role="button">Agendar Consulta</a>
+        <!-- Mobile: CTA + hamburger (mantiene comportamiento actual) -->
+        <a href="contacto.html" class="nav__cta nav__cta--mobile-only" role="button">Agendar Consulta</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
@@ -215,8 +269,8 @@
 
       <!-- Background slider — full-bleed photos crossfade -->
       <div class="dm-hero__slider" data-hero-slider aria-hidden="true">
-        <div class="dm-hero__slide is-active" data-slide="0" style="background-image: url('img/dr-sergio-rios-hero2.png');"></div>
-        <div class="dm-hero__slide" data-slide="1" style="background-image: url('img/veneers-lateral-detail.jpg');"></div>
+        <div class="dm-hero__slide is-active" data-slide="0" style="background-image: url('img/Slider%201.png');"></div>
+        <div class="dm-hero__slide" data-slide="1" style="background-image: url('img/Slider%202.jpeg');"></div>
         <div class="dm-hero__slide" data-slide="2" style="background-image: url('img/Ortodoncia%20Invisible.png');"></div>
       </div>
 
@@ -242,26 +296,6 @@
               <p class="dm-hero__subtitle">
                 La clínica del <strong>Dr. Sergio Ríos</strong> en Ciudad del Río, Medellín. Diseño de sonrisa, coronas de porcelana, ortodoncia e implantología avanzada bajo un mismo enfoque artesanal.
               </p>
-              <div class="dm-hero__intro-row">
-                <a href="https://www.instagram.com/sergirios/" target="_blank" rel="noopener noreferrer" class="dm-hero__ig" aria-label="Ver el perfil de Instagram del Dr. Sergio Ríos">
-                  <span class="dm-hero__ig-icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                  </span>
-                  <span class="dm-hero__ig-text">
-                    <span class="dm-hero__ig-handle">@sergirios</span>
-                    <span class="dm-hero__ig-cta">Ver perfil en Instagram →</span>
-                  </span>
-                </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=Calle%2019A%20%2344-25%20Torre%20Salud%20y%20Servicios%20Ciudad%20del%20R%C3%ADo%20Medell%C3%ADn" target="_blank" rel="noopener noreferrer" class="dm-hero__loc" aria-label="Ver ubicación de la clínica en Google Maps">
-                  <span class="dm-hero__loc-pin" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  </span>
-                  <span class="dm-hero__loc-text">
-                    <span class="dm-hero__loc-line">Torre Salud y Servicios · Cl. 19A #44-25</span>
-                    <span class="dm-hero__loc-sub">Piso 12 · Cons. 1216 · Ciudad del Río, Medellín</span>
-                  </span>
-                </a>
-              </div>
             </div>
 
             <!-- Slide 1 — Diseño de Sonrisa -->

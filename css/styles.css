@@ -8365,3 +8365,296 @@ section.galeria.galeria--unvrs {
     transition: none !important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TOP BAR + NAV (Hernán Botero style, desktop only)            */
+/* Top bar with contact info disappears on scroll, nav stays    */
+/* ═══════════════════════════════════════════════════════════ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky, 100);
+}
+
+/* ─── Top bar (OdontoSur style: LOGO left + info cards right + CTA) ─ */
+.top-bar {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(100, 169, 158, 0.12);
+  max-height: 130px;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+}
+
+.top-bar__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.5rem var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+/* Logo — LEFT side, BIG with tagline (OdontoSur style) */
+.top-bar__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.top-bar__logo-mark {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s var(--ease);
+}
+
+.top-bar__logo:hover .top-bar__logo-mark {
+  transform: translateY(-1px);
+}
+
+.top-bar__logo-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.top-bar__logo-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--title);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.top-bar__logo-tag {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 0.3rem;
+  letter-spacing: -0.005em;
+}
+
+.top-bar__logo-sub {
+  font-family: var(--vo-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary, #909190);
+  margin-top: 0.3rem;
+}
+
+/* RIGHT side: info cards + CTA */
+.top-bar__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Info card (OdontoSur style: icon outline + strong + sub, slim version) */
+.top-bar__info {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s ease;
+}
+
+.top-bar__info--link:hover {
+  opacity: 0.75;
+}
+
+.top-bar__info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #1a1a1a;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+/* Override SVG sizes inside the icon */
+.top-bar__info-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.top-bar__info-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.top-bar__info-text strong {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+}
+
+.top-bar__info-text span {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #888;
+  margin-top: 0.15rem;
+}
+
+.top-bar__wa,
+.top-bar__addr {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.top-bar__wa:hover {
+  transform: translateY(-1px);
+}
+
+.top-bar__wa:hover strong {
+  color: #1ebe5d;
+}
+
+.top-bar__addr {
+  cursor: default;
+}
+
+.top-bar__wa-icon,
+.top-bar__addr-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-soft, #f4faf9);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.top-bar__wa-icon { background: #f0fdf4; }
+
+.top-bar__wa-text,
+.top-bar__addr-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.top-bar__wa-kicker,
+.top-bar__addr-kicker {
+  font-family: var(--vo-mono, ui-monospace, monospace);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.top-bar__wa-text strong,
+.top-bar__addr-text strong {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--bg-dark);
+  letter-spacing: -0.005em;
+  transition: color 0.25s ease;
+}
+
+.top-bar__divider {
+  display: none;
+}
+
+/* CTA button — right side · verde RIU (accent) */
+.top-bar__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(100, 169, 158, 0.32);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  justify-self: end;
+}
+
+.top-bar__cta:hover {
+  background: #4f8d83;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(100, 169, 158, 0.45);
+}
+
+/* ─── Scroll behavior: top bar slides up & collapses ────── */
+.site-header.is-scrolled .top-bar {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  border-bottom-color: transparent;
+}
+
+/* ─── Reposition .nav inside .site-header ────────────────── */
+.site-header .nav {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  z-index: auto;
+}
+
+/* ─── Hide top bar on mobile (mobile keeps original nav) ──── */
+@media (max-width: 1024px) {
+  .top-bar { display: none; }
+}
+
+/* ─── Mobile-only nav elements: hide on desktop ─────────── */
+@media (min-width: 1025px) {
+  .nav__logo--mobile-only,
+  .nav__cta--mobile-only {
+    display: none !important;
+  }
+  .nav__hamburger {
+    display: none !important;
+  }
+  /* Center nav links when no logo/CTA flanking them */
+  .site-header .nav .nav__inner {
+    justify-content: center;
+  }
+  .site-header .nav .nav__links {
+    display: flex !important;
+    gap: 2rem;
+  }
+}
+
+/* ─── Body padding to account for fixed header ──────────── */
+@media (min-width: 1025px) {
+  body {
+    /* Top bar (~80px) + nav (~60px) = ~140px */
+    padding-top: 0;
+  }
+}
+
